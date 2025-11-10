@@ -1,0 +1,14 @@
+Feature: BestBuy TV&HomeTheatre Module
+
+This feature deals with TV & HomeTheatre Module in BestBuy Website
+
+
+Scenario: This feature deals with TV & HomeTheatre Module in BestBuy Website
+
+	Given Menu Bar should avaliable
+	And click on Menu Bar
+	And Select the Shop by Department 
+	When I click on TVs by Brand
+	Then should display what are avaliable on that
+	
+
