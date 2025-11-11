@@ -1,0 +1,81 @@
+package com.stepDefinitionJUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.pages.UserPage;
+import com.setup.BaseSteps;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class PetsPageProfile {
+	WebDriver driver = BaseSteps.driver;
+	ExtentTest test = Hooks.test;
+
+	//PetsPage petspage;
+	UserPage userpage;
+	
+	@Given("the user is on the BestBuy Home Page")
+	public void the_user_is_on_the_best_buy_home_page() {
+	    userpage = new UserPage(driver, test);
+	    Assert.assertTrue(userpage.verifyHomepage(), "Home Page is not displayed");
+	}
+	@Then("the Gift Ideas page with various categories should be displayed")
+	public void the_gift_ideas_page_with_various_categories_should_be_displayed() {
+		boolean status = userpage.displayGiftIdeasPage();
+		Assert.assertTrue(status);
+
+	}
+	
+	@When("the user clicks on the {string} link")
+	public void the_user_clicks_on_the_link(String string) {
+		
+		boolean status = userpage.clickGiftIdeas();
+		Assert.assertTrue(status);
+	    
+	}
+	
+	@And("the user clicks on the {string} category")
+	public void the_user_clicks_on_the_category(String string) {
+		boolean status = userpage.clickPetsPage();
+		Assert.assertTrue(status);
+	    
+	}
+	@And("click on {string} category")
+	public void click_on_category(String string) {
+		boolean status = userpage.clickpetfeeders();
+		Assert.assertTrue(status);
+	    
+	}
+	@Then("the Pets category page should display pet-related gift items")
+	public void the_pets_category_page_should_display_pet_related_gift_items() {
+		
+		boolean status = userpage.DisplayPetPage();
+		Assert.assertTrue(status);
+	    
+	}
+//	@And("the user clicks on the {string} category")
+//	public void click_on_pets_category(String string) {
+//		boolean status = userpage.clickPetsPage();
+//		Assert.assertTrue(status);
+//	}
+//	
+//	@And("click on {string} category")
+//	public void click_on_category(String string) {
+//		boolean status = userpage.clickpetfeeders();
+//		Assert.assertTrue(status);
+//	}
+//	
+//	@Then("the Pets category page should display pet-related gift items")
+//	public void the_pets_category_page_should_display_pet_related_gift_items() {
+//		
+//		boolean status = userpage.DisplayPetPage();
+//		Assert.assertTrue(status);
+//	    
+//	}
+
+}
