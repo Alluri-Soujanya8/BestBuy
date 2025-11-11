@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="74.945" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-11-11T12:07:03.745449600Z">
+<testcase classname="Navigate to Gift Ideas Page" name="User clicks on Gift Ideas from the Home Page" time="26.945">
+<system-out><![CDATA[
+Given the user is on the BestBuy Home Page..................................passed
+When the user clicks on the "<moduleName>" link.............................passed
+Then the Gift Ideas page with various categories should be displayed........passed
+]]></system-out>
+</testcase>
+<testcase classname="Navigate to Gift Ideas Page" name="User clicks on Pets category from Gift Ideas page" time="46.998">
+<system-out><![CDATA[
+Given the user is on the BestBuy Home Page..................................passed
+When the user clicks on the "<moduleName>" link.............................passed
+And the user clicks on the "<categoryname>" category........................passed
+And click on "<buttonName>" category........................................passed
+Then the Pets category page should display pet-related gift items...........passed
+]]></system-out>
+</testcase>
+</testsuite>
