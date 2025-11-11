@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="81.52" tests="2" skipped="0" failures="1" errors="0" timestamp="2025-11-11T12:07:34.575413100Z">
+<testcase classname="Navigate to BestBuy E-Gift Cards Page from Menu" name="Navigate to E-Gift Cards page via menu" time="24.042">
+<system-out><![CDATA[
+Given more functionality should be available................................passed
+When user clicks More.......................................................passed
+And user clicks Gift Cards..................................................passed
+Then the Gift Cards page should be displayed................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Navigate to BestBuy E-Gift Cards Page from Menu" name="Validate required fields and navigate to design selection" time="56.318">
+<failure type="java.lang.AssertionError" message="E-Gift Card page should be displayed expected [true] but found [false]">
+<![CDATA[java.lang.AssertionError: E-Gift Card page should be displayed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.stepDefinitionTestNG.Profile.the_user_clicks_on_e_gift_cards_e_gift_card_page_should_be_displayed(Profile.java:77)
+	at ✽.the user clicks on E-Gift Cards,E-Gift Card page should be displayed(file:///C:/training/java-selenium/BestBuy/./src/test/resources/com/features/GiftCards_Homepage.feature:13)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the user is on the Gift Cards page....................................passed
+When the user clicks on E-Gift Cards,E-Gift Card page should be displayed...failed
+And the user enters "John" as the recipient name and the user enters "Alice" as the sender name.skipped
+And the user  clicks on Send a Digital Card.................................skipped
+Then the user should be navigated to the Choose E-Gift Card Design page.....skipped
+]]></system-out>
+</testcase>
+</testsuite>
