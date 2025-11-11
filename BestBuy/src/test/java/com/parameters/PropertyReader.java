@@ -8,7 +8,7 @@ import java.util.Properties;
 public class PropertyReader {
 
 	public static Properties readProperty() {
-		Properties prop=null;
+		Properties prop = null;
 		String fileName = ".\\src\\test\\resources\\PropertiesFile\\profile.properties";
 		try
 		{
@@ -28,5 +28,4 @@ public class PropertyReader {
 		return prop;
 		
 	}
-
 }
