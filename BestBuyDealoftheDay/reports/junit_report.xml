@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="63.422" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-11-12T05:19:05.773203900Z">
+<testcase classname="Navigation to Deal of the Day" name="Verify navigation to Deal of the Day page" time="27.155">
+<system-out><![CDATA[
+Given User is on BestBuy homepage...........................................passed
+When the user clicks on the Deal of the Day.................................passed
+Then the Deal of the Day page should be displayed...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Navigation to Deal of the Day" name="Navigate from Deal of the Day to FAQ and then Help Center" time="35.165">
+<system-out><![CDATA[
+Given User is on Deal of the Day page.......................................passed
+When the user clicks on the FAQ link........................................passed
+And the FAQ page should be displayed........................................passed
+And the user clicks on the Help Center link.................................passed
+Then the Help Center page should be displayed...............................passed
+]]></system-out>
+</testcase>
+</testsuite>
