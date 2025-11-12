@@ -1,21 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="27.249" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-11-12T13:36:48.738595600Z">
-<testcase classname="BestBuy TV&amp;HomeTheatre Module" name="Apply valid filters on TV page" time="26.582">
-<failure type="java.lang.Error" message="Unresolved compilation problem: 
-	The method getAllData(String) in the type ExcelReader is not applicable for the arguments (int)
-">
-<![CDATA[java.lang.Error: Unresolved compilation problem: 
-	The method getAllData(String) in the type ExcelReader is not applicable for the arguments (int)
-
-	at com.stepdefinition.Profile.user_applies_filters_whatever_he_want(Profile.java:90)
-	at ✽.User applies filters whatever he want(file:///C:/Users/alluri/eclipse-workspace/BestBuy/./src/test/resources/com/Features/TV&HomeTheatre.feature:19)
+<testsuite name="Cucumber" time="89.178" tests="2" skipped="0" failures="2" errors="0" timestamp="2025-11-12T18:15:53.237594400Z">
+<testcase classname="Best Buy Top Deals Page" name="test compare functionality with valid data - #1.1" time="71.315">
+<failure type="java.lang.AssertionError" message="expected [true] but found [false]">
+<![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.StepDefinitionTestNG.Profile.click_on_compare_button(Profile.java:119)
+	at ✽.click on Compare button(file:///C:/Training/Java/BestBuy-TopDeals/BestBuy_TopDeals/./src/test/resources/com/Features/TopDeals.feature:48)
 ]]>
 </failure>
 <system-out><![CDATA[
-Given User is on the TV page................................................passed
-When User scrolls to the filter panel.......................................passed
-And User applies filters whatever he want...................................failed
-Then Relevant TV models matching the criteria should be displayed...........skipped
+Given Top Deals functionality should be availble............................passed
+When i click on Top Deals link..............................................passed
+And should display Top Deals page...........................................passed
+And should click on Computer & Tablet Deals.................................passed
+And should click on Laptops.................................................passed
+Then should display Laptop Deals............................................passed
+Given User Laptop Deals page should scroll to Featured deals................passed
+When i click on save option for first laptop................................passed
+And click on save option for second laptop..................................passed
+And scroll up to click on Saved Items.......................................passed
+Then click on See all your saved items......................................passed
+Given Saved Items Page should be open.......................................passed
+When i select First checkbox of first Laptop 0 1............................passed
+And select second checkbox of second Laptop 0 1.............................passed
+And click on Compare button.................................................failed
+And verify Compare Products.................................................skipped
+And verify and click Toggle Switch..........................................skipped
+Then Scroll up and click Remove on First Laptop.............................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Best Buy Top Deals Page" name="test compare functionality with valid data - #1.2" time="16.683">
+<failure type="org.openqa.selenium.TimeoutException" message="Expected condition failed: waiting for element to be clickable: By.xpath: //h4[text()='United States'] (tried for 10 second(s) with 500 milliseconds interval)">
+<![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //h4[text()='United States'] (tried for 10 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.Setup.BaseSteps.launchBrowser(BaseSteps.java:52)
+	at com.StepDefinitionTestNG.Hooks.beforeScenario(Hooks.java:37)
+Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.135)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [6817ba120c4a281fa3167e5b830236ba, findElement {using=xpath, value=//h4[text()='United States']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 141.0.7390.78 (2b53b0e231fc..., userDataDir: C:\Users\karriv\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54162}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54162/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6817ba120c4a281fa3167e5b830236ba
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:198)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:632)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:629)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	... 2 more
+]]>
+</failure>
+<system-out><![CDATA[
+Given Top Deals functionality should be availble............................skipped
+When i click on Top Deals link..............................................skipped
+And should display Top Deals page...........................................skipped
+And should click on Computer & Tablet Deals.................................skipped
+And should click on Laptops.................................................skipped
+Then should display Laptop Deals............................................skipped
+Given User Laptop Deals page should scroll to Featured deals................skipped
+When i click on save option for first laptop................................skipped
+And click on save option for second laptop..................................skipped
+And scroll up to click on Saved Items.......................................skipped
+Then click on See all your saved items......................................skipped
+Given Saved Items Page should be open.......................................skipped
+When i select First checkbox of first Laptop 0 2............................skipped
+And select second checkbox of second Laptop 0 2.............................skipped
+And click on Compare button.................................................skipped
+And verify Compare Products.................................................skipped
+And verify and click Toggle Switch..........................................skipped
+Then Scroll up and click Remove on First Laptop.............................skipped
 ]]></system-out>
 </testcase>
 </testsuite>

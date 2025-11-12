@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="24.21" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-11-10T12:13:59.049390100Z">
+<testcase classname="Best Buy Top Deals Page" name="test with valid data" time="23.252">
+<system-out><![CDATA[
+Given Top Deals functionality should be availble............................passed
+When i click on Top Deals link..............................................passed
+Then should display Top Deals page..........................................passed
+]]></system-out>
+</testcase>
+</testsuite>
