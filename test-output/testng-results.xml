@@ -1,62 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="0" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-12T19:06:47 IST" name="Default suite" finished-at="2025-11-12T19:07:16 IST" duration-ms="28209">
+  <suite started-at="2025-11-12T23:45:52 IST" name="Default suite" finished-at="2025-11-12T23:47:22 IST" duration-ms="90260">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-11-12T19:06:47 IST" name="Default test" finished-at="2025-11-12T19:07:16 IST" duration-ms="28209">
-      <class name="com.runner.TestRunnerTestNG">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-12T19:06:47 IST" name="setUpClass" finished-at="2025-11-12T19:06:49 IST" duration-ms="1312" status="PASS">
+    <test started-at="2025-11-12T23:45:52 IST" name="Default test" finished-at="2025-11-12T23:47:22 IST" duration-ms="90260">
+      <class name="com.Runner.TestRunnerTestNG">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" started-at="2025-11-12T23:45:52 IST" name="setUpClass" finished-at="2025-11-12T23:45:53 IST" duration-ms="1430" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@2e1eb85f]]>
+                <![CDATA[org.testng.TestRunner@28cb86b2]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-12T19:06:49 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-12T19:07:15 IST" duration-ms="26716" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" started-at="2025-11-12T23:45:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-12T23:47:05 IST" duration-ms="71458" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Apply valid filters on TV page"]]>
+                <![CDATA["test compare functionality with valid data"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["BestBuy TV&HomeTheatre Module"]]>
+                <![CDATA["Best Buy Top Deals Page"]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.Error">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Unresolved compilation problem: 
-The method getAllData(String) in the type ExcelReader is not applicable for the arguments (int)
-]]>
+              <![CDATA[expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Error: Unresolved compilation problem: 
-The method getAllData(String) in the type ExcelReader is not applicable for the arguments (int)
-
-at com.stepdefinition.Profile.user_applies_filters_whatever_he_want(Profile.java:90)
-at ✽.User applies filters whatever he want(file:///C:/Users/alluri/eclipse-workspace/BestBuy/./src/test/resources/com/Features/TV&HomeTheatre.feature:19)
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at org.testng.Assert.assertTrue(Assert.java:67)
+at com.StepDefinitionTestNG.Profile.click_on_compare_button(Profile.java:119)
+at ✽.click on Compare button(file:///C:/Training/Java/BestBuy-TopDeals/BestBuy_TopDeals/./src/test/resources/com/Features/TopDeals.feature:48)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.Error -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-12T19:07:15 IST" name="tearDownClass" finished-at="2025-11-12T19:07:16 IST" duration-ms="126" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" started-at="2025-11-12T23:47:05 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-12T23:47:21 IST" duration-ms="16688" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["test compare functionality with valid data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Best Buy Top Deals Page"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //h4[text()='United States'] (tried for 10 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //h4[text()='United States'] (tried for 10 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.Setup.BaseSteps.launchBrowser(BaseSteps.java:52)
+at com.StepDefinitionTestNG.Hooks.beforeScenario(Hooks.java:37)
+Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.135)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [6817ba120c4a281fa3167e5b830236ba, findElement {using=xpath, value=//h4[text()='United States']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 141.0.7390.78 (2b53b0e231fc..., userDataDir: C:\Users\karriv\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54162}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54162/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6817ba120c4a281fa3167e5b830236ba
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:198)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
+at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:632)
+at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:629)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+... 2 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" started-at="2025-11-12T23:47:21 IST" name="tearDownClass" finished-at="2025-11-12T23:47:22 IST" duration-ms="609" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-      </class> <!-- com.runner.TestRunnerTestNG -->
+      </class> <!-- com.Runner.TestRunnerTestNG -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
