@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="512.408" tests="2" skipped="0" failures="1" errors="0" timestamp="2025-11-12T15:38:15.634982200Z">
+<testcase classname="Navigate to Gift Ideas Page" name="Apply filters, clear them, and view product details - #1.1" time="241.528">
+<system-out><![CDATA[
+Given the user is on the BestBuy Home Page..................................passed
+When the user clicks on the moduleName link.................................passed
+And the user clicks on the categoryname category............................passed
+And click on filters 1 0....................................................passed
+And the user clicks the product list........................................passed
+Then the product details page should display price, reviews, and availability.passed
+]]></system-out>
+</testcase>
+<testcase classname="Navigate to Gift Ideas Page" name="Apply filters, clear them, and view product details - #1.2" time="269.734">
+<failure type="java.lang.NullPointerException" message="Cannot invoke &quot;org.apache.poi.ss.usermodel.Row.getLastCellNum()&quot; because &quot;row&quot; is null">
+<![CDATA[java.lang.NullPointerException: Cannot invoke "org.apache.poi.ss.usermodel.Row.getLastCellNum()" because "row" is null
+	at com.parameters.ExcelReader.getRowData(ExcelReader.java:46)
+	at com.stepDefinitionTestNG.Profile.click_on_filters(Profile.java:123)
+	at ✽.click on filters 2 0(file:///C:/training%20modules/JavaSelenium/BestBuy/./src/test/resources/com/features/Homepage.feature:21)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the user is on the BestBuy Home Page..................................passed
+When the user clicks on the moduleName link.................................passed
+And the user clicks on the categoryname category............................passed
+And click on filters 2 0....................................................failed
+And the user clicks the product list........................................skipped
+Then the product details page should display price, reviews, and availability.skipped
+]]></system-out>
+</testcase>
+</testsuite>
