@@ -1,0 +1,38 @@
+package com.stepdefinitiontestng;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.pages.UserPage;
+import com.setup.BaseSteps;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class Profile extends BaseSteps {
+
+    WebDriver driver = BaseSteps.driver;
+    ExtentTest test = Hooks.test;
+
+    UserPage userpage;
+
+    @Given("Menu Bar should avaliable")
+    public void menu_bar_should_avaliable() {
+        userpage = new UserPage(driver, test);
+        boolean status = userpage.menubar();
+        Assert.assertTrue(status, "Menu Bar is not available or not clickable");
+    }
+
+    @When("I click on Menu Bar")
+    public void i_click_on_menu_bar() {
+        // Already handled in the previous step, or you can separate it if needed
+    }
+
+    @Then("Select the Shop by Department")
+    public void select_the_shop_by_department() {
+        boolean status = userpage.selectShopByDepartment();
+        Assert.assertTrue(status, "TV & Home Theater section not found or not clickable");
+    }
+}

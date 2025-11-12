@@ -1,0 +1,107 @@
+package com.pages;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.setup.Reports;
+
+public class UserPage {
+
+    private WebDriver driver;
+    private WebDriverWait wait;
+    private ExtentTest test;
+
+    private By menuBar = By.xpath("//button[contains(text(), 'Menu')]");
+    private By clickmenu = By.className("open-hamburger-icon");
+    private By module = By.xpath("//button[contains(text(), 'TV & Home Theater')]");
+    private By brand = By.xpath("//button[contains(text(), 'TVs by Brand')]");
+    private By verifyModule = By.xpath("//h2[text()='Shop by Department']/following::button[1]");
+    private By backdrop = By.id("confirmIt-backdrop");
+
+    public UserPage(WebDriver driver, ExtentTest test) {
+        this.driver = driver;
+        this.test = test;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    }
+
+    public boolean menubar() {
+        boolean actResult = true;
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+            wait.until(ExpectedConditions.elementToBeClickable(menuBar));
+            Reports.generateReport(driver, test, Status.PASS, "menuBar is found and clickable");
+            driver.findElement(menuBar).click();
+        } catch (TimeoutException te) {
+            actResult = false;
+            Reports.generateReport(driver, test, Status.FAIL, "menuBar is not clickable or blocked");
+        }
+        return actResult;
+    }
+
+    public boolean clickMenu() {
+        boolean actResult = true;
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(clickmenu));
+            driver.findElement(clickmenu).click();
+            Reports.generateReport(driver, test, Status.PASS, "Menu Button is Clicked");
+        } catch (TimeoutException te) {
+            actResult = false;
+            Reports.generateReport(driver, test, Status.FAIL, "Menu Button is not clickable");
+        }
+        return actResult;
+    }
+
+    public boolean moduleBB() {
+        boolean actResult = true;
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(module));
+            driver.findElement(module).click();
+            Reports.generateReport(driver, test, Status.PASS, "TV & Home Theater menu item clicked");
+        } catch (TimeoutException te) {
+            actResult = false;
+            Reports.generateReport(driver, test, Status.FAIL, "TV & Home Theater menu item not found");
+        }
+        return actResult;
+    }
+
+    public boolean selectbrand() {
+        boolean actResult = true;
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(brand));
+            driver.findElement(brand).click();
+            Reports.generateReport(driver, test, Status.PASS, "TV Brand is displayed and clicked");
+        } catch (TimeoutException te) {
+            actResult = false;
+            Reports.generateReport(driver, test, Status.FAIL, "TV Brand is not displayed");
+        }
+        return actResult;
+    }
+
+    public boolean verifymodule() {
+        boolean actResult = true;
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+            wait.until(ExpectedConditions.elementToBeClickable(verifyModule));
+            WebElement moduleElement = driver.findElement(verifyModule);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", moduleElement);
+            moduleElement.click();
+            Reports.generateReport(driver, test, Status.PASS, "TV & Home Theater Module clicked successfully");
+        } catch (Exception e) {
+            actResult = false;
+            Reports.generateReport(driver, test, Status.FAIL, "TV & Home Theater Module not found or not clickable");
+        }
+        return actResult;
+    }
+}

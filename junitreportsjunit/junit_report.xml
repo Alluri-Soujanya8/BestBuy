@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="82.635" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-11-11T11:55:17.019963100Z">
+<testcase classname="BestBuy TV&amp;HomeTheatre Module" name="This feature deals with TV &amp; HomeTheatre Module in BestBuy Website" time="81.177">
+<system-out><![CDATA[
+Given Menu Bar should avaliable.............................................passed
+And click on Menu Bar.......................................................passed
+And Select the Shop by Department...........................................passed
+When I click on Tv&Home Theatre.............................................passed
+Then should display the Product page........................................passed
+]]></system-out>
+</testcase>
+</testsuite>

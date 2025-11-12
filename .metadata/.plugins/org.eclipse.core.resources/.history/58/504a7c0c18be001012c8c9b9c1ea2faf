@@ -1,0 +1,12 @@
+Feature: BestBuy TV&HomeTheatre Module
+
+This feature deals with TV & HomeTheatre Module in BestBuy Website
+
+Scenario: This feature deals with TV & HomeTheatre Module in BestBuy Website
+
+	Given Menu Bar should avaliable
+	When I click on Menu Bar
+	Then  Select the Shop by Department 
+
+	
+

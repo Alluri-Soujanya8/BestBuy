@@ -1,0 +1,59 @@
+package com.stepdefinitionjunit;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.pages.UserPage;
+import com.setup.BaseSteps;
+import com.stepdefinitiontestng.Hooks;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class Profile  {
+	
+	WebDriver driver = BaseSteps.driver;
+	ExtentTest test = Hooks.test;
+
+	UserPage userpage;
+
+	@Given("Menu Bar should avaliable")
+	public void menu_bar_should_avaliable() {
+		userpage = new UserPage(driver, test);
+		boolean status = userpage.menubar();
+		Assert.assertTrue(status);
+	}
+
+	@And("click on Menu Bar")
+	public void click_on_menu_bar() {
+		userpage = new UserPage(driver, test);
+		boolean status = userpage.clickMenu(); // updated to use clickMenu()
+		Assert.assertTrue(status);
+	}
+
+	@And("Select the Shop by Department")
+	public void select_the_shop_by_department() {
+		boolean status = userpage.moduleBB(); // now calling moduleBB() here
+		Assert.assertTrue(status);
+	}
+
+	@When("I click on TVs by Brand")
+
+	public void i_click_on_tv_home_theatre() {
+		boolean status = userpage.selectbrand();
+		Assert.assertTrue(status);
+	}
+
+	@Then("should display what are avaliable on that")
+	public void should_display_what_are_avaliable_on_that() {
+		boolean status = userpage.verifymodule();
+		Assert.assertTrue(status);
+		
+		// You can add a validation method here if needed
+	}
+}
+
+}

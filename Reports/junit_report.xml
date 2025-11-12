@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="27.249" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-11-12T13:36:48.738595600Z">
+<testcase classname="BestBuy TV&amp;HomeTheatre Module" name="Apply valid filters on TV page" time="26.582">
+<failure type="java.lang.Error" message="Unresolved compilation problem: 
+	The method getAllData(String) in the type ExcelReader is not applicable for the arguments (int)
+">
+<![CDATA[java.lang.Error: Unresolved compilation problem: 
+	The method getAllData(String) in the type ExcelReader is not applicable for the arguments (int)
+
+	at com.stepdefinition.Profile.user_applies_filters_whatever_he_want(Profile.java:90)
+	at ✽.User applies filters whatever he want(file:///C:/Users/alluri/eclipse-workspace/BestBuy/./src/test/resources/com/Features/TV&HomeTheatre.feature:19)
+]]>
+</failure>
+<system-out><![CDATA[
+Given User is on the TV page................................................passed
+When User scrolls to the filter panel.......................................passed
+And User applies filters whatever he want...................................failed
+Then Relevant TV models matching the criteria should be displayed...........skipped
+]]></system-out>
+</testcase>
+</testsuite>

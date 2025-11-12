@@ -1,0 +1,65 @@
+package com.pages;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.setup.Reports;
+
+public class UserPage {
+
+    private static WebDriver static WebDriverWait wait;
+    static ExtentTest test;
+
+    private static By menuBar = By.xpath("//button[contains(text(), 'Menu')]");
+    private static By clickmenu = By.className("open-hamburger-icon");
+    private static By shopByDepartment = By.xpath("//button[contains(text(), 'TV & Home Theater')]");
+    private static By backdrop = By.id("confirmIt-backdrop");
+
+    public UserPage(WebDriver driver, ExtentTest test) {
+        UserPage.driver = driver;
+        UserPage.test = test;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    }
+
+    public static boolean menubar() {
+        boolean actResult = true;
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+            wait.until(ExpectedConditions.elementToBeClickable(menuBar));
+            driver.findElement(menuBar).click();
+            Reports.generateReport(driver, test, Status.PASS, "Menu bar clicked successfully");
+        } catch (TimeoutException te) {
+            actResult = false;
+            Reports.generateReport(driver, test, Status.FAIL, "Menu bar not clickable or blocked");
+        }
+        return actResult;
+    }
+
+    public static boolean selectShopByDepartment() {
+        boolean actResult = true;
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+            wait.until(ExpectedConditions.elementToBeClickable(shopByDepartment));
+            WebElement element = driver.findElement(shopByDepartment);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+            element.click();
+            Reports.generateReport(driver, test, Status.PASS, "TV & Home Theater section clicked");
+        } catch (Exception e) {
+            actResult = false;
+            Reports.generateReport(driver, test, Status.FAIL, "TV & Home Theater section not found or not clickable");
+        }
+        return actResult;
+    }
+}
+	
+
+
