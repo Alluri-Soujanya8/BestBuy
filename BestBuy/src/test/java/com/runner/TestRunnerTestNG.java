@@ -13,7 +13,7 @@ import io.cucumber.testng.CucumberOptions;
 	    plugin = {"pretty", "html:reports/cucumber-reports.html",
 	    		   "json:reports/join-report.json",
 	    		   "junit:reports/junit-report.xml"}
-	    ,tags="@Tag"
+	  //,tags="@Tag1"
 	    
 		)
 public class TestRunnerTestNG extends AbstractTestNGCucumberTests{

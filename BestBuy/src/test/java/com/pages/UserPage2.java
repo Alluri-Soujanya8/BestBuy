@@ -49,29 +49,32 @@ public class UserPage2 {
     
     @FindBy(xpath="//button[@data-cashbot-id='recipient-button-submit']")
     private static WebElement sendDigitalCardButton;  
-    
-
-//@FindBy(css = "h1.design-title")
-//WebElement eGiftCardPageHeader1;
 
     
     @FindBy(xpath="//span[text()='Choose your e-gift card design.']")
     private static WebElement designPageHeader ;
     
-    
-    @FindBy(xpath="//span[text()='Continue']")
+
+    @FindBy(xpath = "//div[text()='Birthday']") 
+      private static WebElement birthdayDesign;
+
+
+    @FindBy(xpath = "//button[@data-cashbot-id='choice-button-submit']")
     private static WebElement continueButton;
-    
-    @FindBy(xpath="//span[text()='How much do you want to give?']")
-    private static WebElement amountSelectionHeader;
-    
-//    @FindBy(xpath="//div[@class='error-message' or @id='validationMessage']")
-//    private static WebElement responseMessage ;
+
+    @FindBy(xpath = "//span[text()='How much do you want to give?']")
+    private static WebElement amountPageHeader;
+
+    @FindBy(xpath ="//div[@id='amount-0-label']") // Example locator for $25amount
+    private static WebElement amountOption;
 
 
-@FindBy(xpath = "//div[contains(@class,'error-message') or contains(@class,'success-message')]")
-private WebElement responseMessage;
+    @FindBy(xpath = "//button[@data-cashbot-id=\"amount-button-submit\"]")
+     private static WebElement addMessageButton;
+      
 
+    @FindBy(xpath = "//span[text()='Add a personalized message.']")
+      private static WebElement addMessagePageHeader;
     
 
     public UserPage2(WebDriver driver, ExtentTest test) {
@@ -87,12 +90,12 @@ private WebElement responseMessage;
         try
         {
             wait.until(ExpectedConditions.visibilityOf(more));
-            Reports.generateReport(driver, test, Status.PASS, "Top Deals Functionality is displayed");
+            Reports.generateReport(driver, test, Status.PASS, "Gift Cards Functionality is displayed");
         }
         catch (TimeoutException te)
         {
             actResult = false;
-            Reports.generateReport(driver, test, Status.FAIL, "Top Deals Functionality is not displayed");
+            Reports.generateReport(driver, test, Status.FAIL, "Gift Cards Functionality is not displayed");
         }
         return actResult;
 	}
@@ -102,13 +105,13 @@ private WebElement responseMessage;
         try
         {
             wait.until(ExpectedConditions.visibilityOf(more));
-            Reports.generateReport(driver, test, Status.PASS, "Top Deals Functionality is displayed");
+            Reports.generateReport(driver, test, Status.PASS, "Gift Cards Functionality is displayed");
            more.click();
         }
         catch (TimeoutException te)
         {
             actResult = false;
-            Reports.generateReport(driver, test, Status.FAIL, "Top Deals Functionality is not displayed");
+            Reports.generateReport(driver, test, Status.FAIL, "Gift Cards Functionality is not displayed");
         }
         return actResult;
     }
@@ -118,13 +121,13 @@ private WebElement responseMessage;
         try
         {
             wait.until(ExpectedConditions.visibilityOf(giftCards));
-            Reports.generateReport(driver, test, Status.PASS, "Top Deals Functionality is displayed");
+            Reports.generateReport(driver, test, Status.PASS, "Gift Cards Functionality is displayed");
             giftCards.click();
         }
         catch (TimeoutException te)
         {
             actResult = false;
-            Reports.generateReport(driver, test, Status.FAIL, "Top Deals Functionality is not displayed");
+            Reports.generateReport(driver, test, Status.FAIL, "Gift Cards Functionality is not displayed");
         }
         return actResult;
     }
@@ -134,12 +137,12 @@ private WebElement responseMessage;
         try
         {
             wait.until(ExpectedConditions.visibilityOf(verifyGiftCardsPage));
-            Reports.generateReport(driver, test, Status.PASS, "Top Deals Functionality is displayed");
+            Reports.generateReport(driver, test, Status.PASS, "Gift Cards Functionality is displayed");
         }
         catch (TimeoutException te)
         {
             actResult = false;
-            Reports.generateReport(driver, test, Status.FAIL, "Top Deals Functionality is not displayed");
+            Reports.generateReport(driver, test, Status.FAIL, "Gift Cards Functionality is not displayed");
         }
         return actResult;
     }
@@ -172,20 +175,7 @@ private WebElement responseMessage;
     }
 
     public void enterRecipientAndSender(String recipient, String sender) {
-//        try {
-//            WebElement recipientField = driver.findElement(recipientNameInput);
-//            WebElement senderField = driver.findElement(senderNameInput);
-//            recipientField.clear();
-//            recipientField.sendKeys(recipient);
-//            senderField.clear();
-//            senderField.sendKeys(sender);
-//            Reports.generateReport(driver, test, Status.INFO, "Entered recipient and sender names");
-//
-//        } catch (Exception e) {
-//             Reports.generateReport(driver, test, Status.FAIL, "Failed to enter names");
-//         }
-    	
-    	
+	
         try {        
         	wait.until(ExpectedConditions.visibilityOf(recipientNameInput)); 
         	recipientNameInput.clear(); 
@@ -220,13 +210,12 @@ private WebElement responseMessage;
             return false;
         }
     }
-
-    
     public boolean verifyEGiftCardPage1() {
-    	String url=prop.getProperty("endUrl");
-    	//System.out.println("Navigating to: " + url);
-        driver.get(url);
+
         try {
+        	more.click();
+        	giftCards.click();
+        	eGiftCardLink.click();
             wait.until(ExpectedConditions.visibilityOf(eGiftCardPageHeader));
             Reports.generateReport(driver, test, Status.PASS, "E-Gift Card page is displayed");
             return true;
@@ -235,45 +224,141 @@ private WebElement responseMessage;
             return false;
         }
     }
-    
 
-    
-  
- // Enter recipient name
-    public void enterRecipientName(String recipient) {
+    public void enterRecipientAndSender1(String recipient, String sender) {
+	
+        try {        
+        	wait.until(ExpectedConditions.visibilityOf(recipientNameInput)); 
+        	recipientNameInput.clear(); 
+        	recipientNameInput.sendKeys(recipient); 
+        	wait.until(ExpectedConditions.visibilityOf(senderNameInput));  
+        	senderNameInput.clear();      
+        	senderNameInput.sendKeys(sender);  
+        	Reports.generateReport(driver, test, Status.INFO,"Entered recipient: " + recipient + " and sender: " + sender);  
+        	} catch (Exception e) {       
+        		Reports.generateReport(driver, test, Status.FAIL, "Failed to enter names");   
+        		}    
+     }
+
+    public void clickSendDigitalCard1() {
         try {
-            wait.until(ExpectedConditions.visibilityOf(recipientNameInput));
-            recipientNameInput.clear();
-            recipientNameInput.sendKeys(recipient);
-            Reports.generateReport(driver, test, Status.INFO, "Entered recipient name: " + recipient);
+           sendDigitalCardButton.click();
+            Reports.generateReport(driver, test, Status.INFO, "Clicked Send Digital Card");
         } catch (Exception e) {
-            Reports.generateReport(driver, test, Status.FAIL, "Failed to enter recipient name");
+            Reports.generateReport(driver, test, Status.FAIL, "Failed to click Send Digital Card");
+        }
+
+    }
+           
+//---------------------------------
+ // Navigate to Design Selection Page
+    public boolean navigateToDesignSelectionPage(String recipient, String sender) {
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(more)).click();
+            wait.until(ExpectedConditions.elementToBeClickable(giftCards)).click();
+            wait.until(ExpectedConditions.elementToBeClickable(eGiftCardLink)).click();
+           wait.until(ExpectedConditions.visibilityOf(recipientNameInput)).sendKeys(recipient);
+          wait.until(ExpectedConditions.visibilityOf(senderNameInput)).sendKeys(sender);
+          wait.until(ExpectedConditions.elementToBeClickable(sendDigitalCardButton)).click();
+
+            Reports.generateReport(driver, test, Status.INFO, "Navigated to Design Selection Page and entered details");
+            return true;
+        } catch (TimeoutException e) {
+            Reports.generateReport(driver, test, Status.FAIL, "Failed to navigate to Design Selection Page");
+            return false;
         }
     }
 
-   // Enter sender name
-    public void enterSenderName(String sender) {
+    // Verify Design Selection Page
+    public boolean verifyDesignSelectionPage() {
         try {
-            wait.until(ExpectedConditions.visibilityOf(senderNameInput));
-            senderNameInput.clear();
-           senderNameInput.sendKeys(sender);
-          Reports.generateReport(driver, test, Status.INFO, "Entered sender name: " + sender);
-        } catch (Exception e) {
-            Reports.generateReport(driver, test, Status.FAIL, "Failed to enter sender name");
-        }
-   }
-    
-    public String getResponseMessage() {
-       try {
-            wait.until(ExpectedConditions.visibilityOf(responseMessage));
-            String message = responseMessage.getText().trim();
-            Reports.generateReport(driver, test, Status.INFO, "Fetched response message: " + message);
-            return message;
-       } catch (TimeoutException e) {
-            Reports.generateReport(driver, test, Status.FAIL, "Response message not displayed");
-            return "Message not found";
+            wait.until(ExpectedConditions.visibilityOf(designPageHeader));
+            Reports.generateReport(driver, test, Status.PASS, "Design Selection Page is displayed");
+            return true;
+        } catch (TimeoutException e) {
+            Reports.generateReport(driver, test, Status.FAIL, "Design Selection Page not displayed");
+            return false;
         }
     }
+
+
+            // Select a design
+            public boolean selectDesign() {
+                try {
+                    wait.until(ExpectedConditions.elementToBeClickable(birthdayDesign));
+                    birthdayDesign.click();
+                    Reports.generateReport(driver, test, Status.INFO, "Selected first design");
+                    return true;
+                } catch (TimeoutException e) {
+                    Reports.generateReport(driver, test, Status.FAIL, "Failed to select design");
+                    return false;
+                }
+            }
+
+            // Click Continue and navigate to Amount Page
+            public boolean clickContinue() {
+                try {
+                    wait.until(ExpectedConditions.elementToBeClickable(continueButton));
+                    continueButton.click();
+                    Reports.generateReport(driver, test, Status.INFO, "Clicked Continue");
+                    return true;
+                } catch (TimeoutException e) {
+                    Reports.generateReport(driver, test, Status.FAIL, "Failed to click Continue");
+                    return false;
+                }
+            }
+
+            // Verify Amount Page
+            public boolean verifyAmountPage() {
+                try {
+                    wait.until(ExpectedConditions.visibilityOf(amountPageHeader));
+                    Reports.generateReport(driver, test, Status.PASS, "Amount Page is displayed");
+                    return true;
+                } catch (TimeoutException e) {
+                    Reports.generateReport(driver, test, Status.FAIL, "Amount Page not displayed");
+                    return false;
+                }
+            }
+
+            // Select an amount
+            public boolean selectAmount() {
+                try {
+                    wait.until(ExpectedConditions.elementToBeClickable(amountOption));
+                    amountOption.click();
+                    Reports.generateReport(driver, test, Status.INFO, "Selected amount: $25");
+                    return true;
+                } catch (TimeoutException e) {
+                    Reports.generateReport(driver, test, Status.FAIL, "Failed to select amount");
+                    return false;
+                }
+            }
+
+            // Click Add a Message
+            public boolean clickAddMessage() {
+                try {
+                    wait.until(ExpectedConditions.elementToBeClickable(addMessageButton));
+                    addMessageButton.click();
+                    Reports.generateReport(driver, test, Status.INFO, "Clicked Add a Message");
+                    return true;
+                } catch (TimeoutException e) {
+                    Reports.generateReport(driver, test, Status.FAIL, "Failed to click Add a Message");
+                    return false;
+                }
+            }
+
+            // Verify Add Message Page
+            public boolean verifyAddMessagePage() {
+                try {
+                    wait.until(ExpectedConditions.visibilityOf(addMessagePageHeader));
+                    Reports.generateReport(driver, test, Status.PASS, "Add Message Page is displayed");
+                    return true;
+                } catch (TimeoutException e) {
+                    Reports.generateReport(driver, test, Status.FAIL, "Add Message Page not displayed");
+                    return false;
+                }
+            }
+        
+
+    }
+
     
-    
-}

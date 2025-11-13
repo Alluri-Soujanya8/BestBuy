@@ -18,12 +18,25 @@ Scenario: Validate required fields and navigate to design selection
 
 
   @Tag
-
 Scenario Outline: Verify navigation and name entry workflow using Excel data
-    Given user is on E-Gift Cards personalization page
-    When user loads Excel data
-    And user enters recipient and sender names for all rows
-    Then validate system response for all rows
+    Given user is on E-Gift Cards page
+    When user enters recipient and sender names from sheet <sheet> and row <row>
+    Then user clicks on Send a Digital Card and validate system response for all rows
+Examples:
+|sheet|row|
+|1    |1  |
+|1    |2  |
+|1    |3  |
+
+
+@Tag1
+Scenario:Verify design selection, amount selection, and validate navigation
+    Given user is on Design Selection page
+    When user selects a design
+    And user clicks on Continue and navigates to Amount page
+    And user selects an amount
+    And user clicks on Add a Message
+    Then user should be navigated to Add Message page
 
 
 
