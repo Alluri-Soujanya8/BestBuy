@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="307.975" tests="2" skipped="0" failures="1" errors="0" timestamp="2025-11-12T16:07:01.982941200Z">
+<testcase classname="Navigate to Gift Ideas Page" name="Apply filters, clear them, and view product details - #1.1" time="265.69">
+<system-out><![CDATA[
+Given the user is on the BestBuy Home Page..................................passed
+When the user clicks on the moduleName link.................................passed
+And the user clicks on the categoryname category............................passed
+And click on filters 1 0....................................................passed
+And the user clicks the product list........................................passed
+Then the product details page should display price, reviews, and availability.passed
+]]></system-out>
+</testcase>
+<testcase classname="Navigate to Gift Ideas Page" name="Apply filters, clear them, and view product details - #1.2" time="41.143">
+<failure type="org.openqa.selenium.TimeoutException" message="Expected condition failed: waiting for element to be clickable: By.xpath: //h4[text()='United States'] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 142.0.3595.53, fedcm:accounts: true, ms:edgeOptions: {debuggerAddress: localhost:49687}, msedge: {msedgedriverVersion: 141.0.3537.85 (229e1a17645e..., userDataDir: C:\Users\vishnumo\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49687/devtoo..., se:cdpVersion: 142.0.3595.53, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: de6ce6341996953a7fdc474d9d76cec6">
+<![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //h4[text()='United States'] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 142.0.3595.53, fedcm:accounts: true, ms:edgeOptions: {debuggerAddress: localhost:49687}, msedge: {msedgedriverVersion: 141.0.3537.85 (229e1a17645e..., userDataDir: C:\Users\vishnumo\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49687/devtoo..., se:cdpVersion: 142.0.3595.53, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: de6ce6341996953a7fdc474d9d76cec6
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.setup.BaseSteps.launchBrowser(BaseSteps.java:45)
+	at com.stepDefinitionTestNG.Hooks.beforeScenario(Hooks.java:43)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the user is on the BestBuy Home Page..................................skipped
+When the user clicks on the moduleName link.................................skipped
+And the user clicks on the categoryname category............................skipped
+And click on filters 2 0....................................................skipped
+And the user clicks the product list........................................skipped
+Then the product details page should display price, reviews, and availability.skipped
+]]></system-out>
+</testcase>
+</testsuite>
