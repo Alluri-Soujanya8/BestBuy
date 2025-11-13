@@ -8,6 +8,7 @@ import com.parameters.PropertyReader;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 
@@ -95,12 +96,10 @@ Assert.assertTrue(userPage.clickEGiftCards(), "Clicked on E-Gift Cards");
 
     }
 
-//    @And("the user enters {string} as the recipient name and the user enters {string} as the sender name")
-//    public void the_user_enters_as_the_recipient_name_and_the_user_enters_as_the_sender_name(String string, String string2) {
 
     @And("the user enters  recipient name and the user enters  sender name")
     public void the_user_enters_recipient_name_and_the_user_enters_sender_name() {
-recipientName = reader.getCellData(0, 0, 0); // Sheet2: John
+    recipientName = reader.getCellData(0, 0, 0); // Sheet2: John
     senderName = reader.getCellData(0, 1, 0);    // Sheet3: Alice
     userPage.enterRecipientAndSender(recipientName, senderName);
 
@@ -119,68 +118,77 @@ recipientName = reader.getCellData(0, 0, 0); // Sheet2: John
     	Assert.assertTrue(navigatedToDesignPage, "User should be navigated to the design selection page");
     }
     
+    @Given("user is on E-Gift Cards page")
+    public void user_is_on_e_gift_cards_page() {
 
-//    @Given("user is on E-Gift Cards personalization page")
-//    public void user_is_on_e_gift_cards_personalization_page() {
-//   	   Assert.assertTrue(userPage.verifyEGiftCardPage1(), "E-Gift Card page not be displayed");
-//   }
-//
-//    @When("user enters recipient name from Excel row {int}")
-//    public void user_enters_recipient_name_from_excel_row(Integer rowIndex) {
-//    	String recipientName = reader.getCellData(1, rowIndex, 0);
-//    	userPage.enterRecipientName(recipientName);
-//    }
-//
-//   @And("user enters sender name from Excel row {int}")
-//    public void user_enters_sender_name_from_excel_row(Integer rowIndex) {
-//    	String senderName = reader.getCellData(1, rowIndex, 1); // Sheet2, col 1
-//   	userPage.enterSenderName(senderName);
-//   }
-//    
-//
-//
-//    @Then("the system should respond with expected result from Excel row {int}")
-//    public void the_system_should_respond_with_expected_result_from_excel_row_row(Integer rowIndex) {
-//
-//
-//String expectedResult = reader.getCellData(1, rowIndex, 2); // Sheet2, col 2
-//    String actualResult = userPage.getResponseMessage();
-//    Assert.assertEquals(actualResult, expectedResult,
-//        "Validation failed for row " + rowIndex + ": Expected '" + expectedResult + "' but got '" + actualResult + "'");
-//
-//    } 
-//    
+        Assert.assertTrue(userPage.verifyEGiftCardPage1(), "E-Gift Card page should be displayed");
 
-    @Given("user is on E-Gift Cards personalization page")
-    public void user_is_on_e_gift_cards_personalization_page() {
-        Assert.assertTrue(userPage.verifyEGiftCardPage1(), "E-Gift Card page not displayed");
     }
 
-    @When("user loads Excel data")
-    public void user_loads_excel_data() {
-      ExcelReader  reader = new ExcelReader("src/test/resources/ExcelData/GiftCards_data.xlsx");
-    }
+    @When("user enters recipient and sender names from sheet {int} and row {int}")
+    public void user_enters_recipient_and_sender_names_from_excel(Integer sheet, Integer row) {
+    	// ExcelReader reader = new ExcelReader(System.getProperty("user.dir") + "/src/test/resources/ExcelData/GiftCards_data.xlsx");
 
-    @And("user enters recipient and sender names for all rows")
-    public void user_enters_recipient_and_sender_names_for_all_rows() {
-        // We will just prepare data here, actual validation in @Then
-        System.out.println("Excel data loaded successfully.");
-    }
+    String recipient = reader.getCellData(sheet, row, 0); // Column 0
+       String sender = reader.getCellData(sheet, row, 1);    // Column 1
 
-    @Then("validate system response for all rows")
-    public void validate_system_response_for_all_rows() {
-        int rowCount = reader.getRowcount(1); // Sheet2 index = 1
-        for (int i = 1; i <= rowCount; i++) {
-            String recipientName = reader.getCellData(1, i, 0);
-            String senderName = reader.getCellData(1, i, 1);
-            String expectedResult = reader.getCellData(1, i, 2);
+       userPage.enterRecipientAndSender1(recipient, sender);
 
-            userPage.enterRecipientName(recipientName);
-            userPage.enterSenderName(senderName);
-            String actualResult = userPage.getResponseMessage();
-
-            Assert.assertEquals(actualResult, expectedResult,
-                "Validation failed for row " + i + ": Expected '" + expectedResult + "' but got '" + actualResult + "'");
         }
+    
+
+    @Then("user clicks on Send a Digital Card and validate system response for all rows")
+    public void user_clicks_on_send_a_digital_card_and_validate_system_response_for_all_rows() {
+    	userPage.clickSendDigitalCard1();
+    	boolean isDesignPageDisplayed = userPage.verifyDesignPage();
+         Assert.assertTrue(isDesignPageDisplayed, "Design page displayed!"); 
     }
-}
+
+    
+    @Given("user is on Design Selection page")
+    public void user_is_on_design_selection_page() {
+
+
+    	    String recipientName = reader.getCellData( 0, 0, 0); // Row 0, Col 0
+    	    String senderName = reader.getCellData(0, 1, 0);
+
+        Assert.assertTrue(userPage.navigateToDesignSelectionPage(recipientName, senderName));
+        Assert.assertTrue(userPage.verifyDesignSelectionPage());
+        System.out.println("Design Selection Page displayed successfully with Recipient: \" + recipientName + \" and Sender: \" + senderName");
+    }
+
+    @When("user selects a design")
+    public void user_selects_a_design() {
+        Assert.assertTrue(userPage.selectDesign());
+        System.out.println(" Design selected successfully");
+    }
+
+    @And("user clicks on Continue and navigates to Amount page")
+    public void user_clicks_on_continue_and_navigates_to_amount_page() {
+        Assert.assertTrue(userPage.clickContinue());
+        Assert.assertTrue(userPage.verifyAmountPage());
+        System.out.println(" Navigated to Amount Page successfully");
+    }
+
+    @And("user selects an amount")
+    public void user_selects_an_amount() {
+        Assert.assertTrue(userPage.selectAmount());
+        System.out.println("Amount selected successfully");
+    }
+
+    @And("user clicks on Add a Message")
+    public void user_clicks_on_add_a_message() {
+        Assert.assertTrue(userPage.clickAddMessage());
+        System.out.println("Add a Message button clicked successfully");
+    }
+
+    @Then("user should be navigated to Add Message page")
+    public void user_should_be_navigated_to_add_message_page() {
+        Assert.assertTrue(userPage.verifyAddMessagePage());
+        System.out.println("Add Message Page displayed successfully");
+    }
+    
+    }
+
+
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="266.068" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-11-13T11:49:31.659861100Z">
+<testcase classname="Navigate to BestBuy E-Gift Cards Page from Menu" name="Navigate to E-Gift Cards page via menu" time="22.877">
+<system-out><![CDATA[
+Given more functionality should be available................................passed
+When user clicks More.......................................................passed
+And user clicks Gift Cards..................................................passed
+Then the Gift Cards page should be displayed................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Navigate to BestBuy E-Gift Cards Page from Menu" name="Validate required fields and navigate to design selection" time="40.79">
+<system-out><![CDATA[
+Given the user is on the Gift Cards page....................................passed
+When the user clicks on E-Gift Cards,E-Gift Card page should be displayed...passed
+And the user enters  recipient name and the user enters  sender name........passed
+And the user  clicks on Send a Digital Card.................................passed
+Then the user should be navigated to the Choose E-Gift Card Design page.....passed
+]]></system-out>
+</testcase>
+<testcase classname="Navigate to BestBuy E-Gift Cards Page from Menu" name="Verify navigation and name entry workflow using Excel data - #1.1" time="72.364">
+<system-out><![CDATA[
+Given user is on E-Gift Cards page..........................................passed
+When user enters recipient and sender names from sheet 1 and row 1..........passed
+Then user clicks on Send a Digital Card and validate system response for all rows.passed
+]]></system-out>
+</testcase>
+<testcase classname="Navigate to BestBuy E-Gift Cards Page from Menu" name="Verify navigation and name entry workflow using Excel data - #1.2" time="34.767">
+<system-out><![CDATA[
+Given user is on E-Gift Cards page..........................................passed
+When user enters recipient and sender names from sheet 1 and row 2..........passed
+Then user clicks on Send a Digital Card and validate system response for all rows.passed
+]]></system-out>
+</testcase>
+<testcase classname="Navigate to BestBuy E-Gift Cards Page from Menu" name="Verify navigation and name entry workflow using Excel data - #1.3" time="60.454">
+<system-out><![CDATA[
+Given user is on E-Gift Cards page..........................................passed
+When user enters recipient and sender names from sheet 1 and row 3..........passed
+Then user clicks on Send a Digital Card and validate system response for all rows.passed
+]]></system-out>
+</testcase>
+<testcase classname="Navigate to BestBuy E-Gift Cards Page from Menu" name="Verify design selection, amount selection, and validate navigation" time="33.716">
+<system-out><![CDATA[
+Given user is on Design Selection page......................................passed
+When user selects a design..................................................passed
+And user clicks on Continue and navigates to Amount page....................passed
+And user selects an amount..................................................passed
+And user clicks on Add a Message............................................passed
+Then user should be navigated to Add Message page...........................passed
+]]></system-out>
+</testcase>
+</testsuite>

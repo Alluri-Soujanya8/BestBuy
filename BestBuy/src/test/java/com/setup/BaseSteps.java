@@ -30,23 +30,7 @@ public class BaseSteps {
 //            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(); //"C:\training\java-selenium\SeleniumGrid\chromedriver.exe"
 
-
-
-//WebDriverManager.chromedriver().setup();
-//ChromeOptions options = new ChromeOptions();
-//options.setExperimentalOption("detach", true);
-//options.addArguments("--disable-blink-features=AutomationControlled");
-//options.addArguments("--headless=new");
-//options.addArguments("--disable-dev-shm-usage");
-//options.addArguments("--no-sandbox");
-//options.addArguments("--disable-gpu");
-//options.addArguments("--remote-allow-origins=*");
-//// options.addArguments("--headless=new"); // Uncomment if you want headless
-
-//driver = new ChromeDriver(options);
-
-
-        
+     
         } 
         else if (browser.equalsIgnoreCase("firefox")) 	//firefox will launch
         {
