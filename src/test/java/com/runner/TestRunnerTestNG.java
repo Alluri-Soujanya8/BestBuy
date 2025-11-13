@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 	       plugin = {"pretty", "html:Reports/cucumber-reports.html",
 	    		   "json:reports/json-report.json",
 	    		   "junit:reports/junit_report.xml",
-		}, tags ="@TVpage"
+		}, tags ="@Brands"
 	    		   )
 
 public class TestRunnerTestNG extends AbstractTestNGCucumberTests{

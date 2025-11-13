@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-12T19:06:47 IST" name="Default suite" finished-at="2025-11-12T19:07:16 IST" duration-ms="28209">
+  <suite started-at="2025-11-13T17:05:54 IST" name="Default suite" finished-at="2025-11-13T17:08:47 IST" duration-ms="173535">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@4da4253]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-11-12T19:06:47 IST" name="Default test" finished-at="2025-11-12T19:07:16 IST" duration-ms="28209">
+    <test started-at="2025-11-13T17:05:54 IST" name="Default test" finished-at="2025-11-13T17:08:47 IST" duration-ms="173535">
       <class name="com.runner.TestRunnerTestNG">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-12T19:06:47 IST" name="setUpClass" finished-at="2025-11-12T19:06:49 IST" duration-ms="1312" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.TestRunnerTestNG@4da4253]" started-at="2025-11-13T17:05:54 IST" name="setUpClass" finished-at="2025-11-13T17:05:55 IST" duration-ms="1381" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@2e1eb85f]]>
+                <![CDATA[org.testng.TestRunner@2b1d1a5]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-12T19:06:49 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-12T19:07:15 IST" duration-ms="26716" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@4da4253]" started-at="2025-11-13T17:05:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-13T17:07:21 IST" duration-ms="85582" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Apply valid filters on TV page"]]>
+                <![CDATA["Verifiying adding TV by brand and checkout as guest"]]>
               </value>
             </param>
             <param index="1">
@@ -34,25 +34,26 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.Error">
-            <message>
-              <![CDATA[Unresolved compilation problem: 
-The method getAllData(String) in the type ExcelReader is not applicable for the arguments (int)
-]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Error: Unresolved compilation problem: 
-The method getAllData(String) in the type ExcelReader is not applicable for the arguments (int)
-
-at com.stepdefinition.Profile.user_applies_filters_whatever_he_want(Profile.java:90)
-at ✽.User applies filters whatever he want(file:///C:/Users/alluri/eclipse-workspace/BestBuy/./src/test/resources/com/Features/TV&HomeTheatre.feature:19)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Error -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.TestRunnerTestNG@1649b0e6]" started-at="2025-11-12T19:07:15 IST" name="tearDownClass" finished-at="2025-11-12T19:07:16 IST" duration-ms="126" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@4da4253]" started-at="2025-11-13T17:07:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-13T17:08:47 IST" duration-ms="86351" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verifiying adding TV by brand and checkout as guest"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["BestBuy TV&HomeTheatre Module"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.TestRunnerTestNG@4da4253]" started-at="2025-11-13T17:08:47 IST" name="tearDownClass" finished-at="2025-11-13T17:08:47 IST" duration-ms="151" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

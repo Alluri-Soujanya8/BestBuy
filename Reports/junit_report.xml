@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="27.249" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-11-12T13:36:48.738595600Z">
-<testcase classname="BestBuy TV&amp;HomeTheatre Module" name="Apply valid filters on TV page" time="26.582">
-<failure type="java.lang.Error" message="Unresolved compilation problem: 
-	The method getAllData(String) in the type ExcelReader is not applicable for the arguments (int)
-">
-<![CDATA[java.lang.Error: Unresolved compilation problem: 
-	The method getAllData(String) in the type ExcelReader is not applicable for the arguments (int)
-
-	at com.stepdefinition.Profile.user_applies_filters_whatever_he_want(Profile.java:90)
-	at ✽.User applies filters whatever he want(file:///C:/Users/alluri/eclipse-workspace/BestBuy/./src/test/resources/com/Features/TV&HomeTheatre.feature:19)
-]]>
-</failure>
+<testsuite name="Cucumber" time="172.491" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-11-13T11:35:55.038922600Z">
+<testcase classname="BestBuy TV&amp;HomeTheatre Module" name="Verifiying adding TV by brand and checkout as guest - #1.1" time="85.442">
 <system-out><![CDATA[
-Given User is on the TV page................................................passed
-When User scrolls to the filter panel.......................................passed
-And User applies filters whatever he want...................................failed
-Then Relevant TV models matching the criteria should be displayed...........skipped
+Given Menu Bar should avaliable.............................................passed
+And click on Menu Bar.......................................................passed
+When I click on Tv&Home Theatre.............................................passed
+And I click on TVs by Brand.................................................passed
+And I select from sheet 0  0................................................passed
+Then the TV listingpage for the brand  should be displayed..................passed
+Then I click on Brand.......................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="BestBuy TV&amp;HomeTheatre Module" name="Verifiying adding TV by brand and checkout as guest - #1.2" time="86.344">
+<system-out><![CDATA[
+Given Menu Bar should avaliable.............................................passed
+And click on Menu Bar.......................................................passed
+When I click on Tv&Home Theatre.............................................passed
+And I click on TVs by Brand.................................................passed
+And I select from sheet 0  1................................................passed
+Then the TV listingpage for the brand  should be displayed..................passed
+Then I click on Brand.......................................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

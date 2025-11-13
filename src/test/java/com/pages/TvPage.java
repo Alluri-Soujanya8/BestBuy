@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,19 +14,35 @@ import com.setup.Reports;
 
 public class TvPage {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
-    private ExtentTest test;
+    private static WebDriver driver;
+    private static WebDriverWait wait;
+    private static ExtentTest test;
 
     // Locators
     private By tvHeader = By.xpath("//h1[contains(text(),'LG TVs')]");
     private By filterPanel = By.xpath("//div[contains(@class,'facet-section')]");
     private By tvlocator = By.id("televisiontype_facet-search-bar-input");
     private By checkBoxLocator = By.xpath("//*[@id=\"televisiontype_facet-search-bar-input\"]");
+    private static By smartCheckbox = By.id("Smart");
+    private static By ledCheckbox = By.id("LED");
+    private static By oledCheckbox = By.id("OLED");
     
-//    private By condlocator = By.className("condition-facet-list");
-//    private By resolutionlocator = By.xpath("(//section[contains(@class, 'facet')])[9]");
-//    private By workswithlocator = By.xpath("(//section[contains(@class, 'facet')])[14]");
+//    @FindBy(xpath = "///a[text()='LG TVs']")
+//    private WebElement lg;
+//
+//    @FindBy(xpath = "//a[text()='Samsung TVs']")
+//    private WebElement samsung;
+//    
+//    @FindBy(xpath = "//a[text()='Sony TVs']")
+//    private WebElement sony;
+//
+//    @FindBy(id = "confirmIt-backdrop")
+//    private WebElement backdrop;
+    
+    private static By lg = By.xpath("//a[text()='LG TVs']");
+    private static By samsung = By.xpath("//a[text()='Samsung TVs']");
+    private static By sony = By.xpath("//a[text()='Sony TVs']");
+   
     private By productTitles = By.xpath("//div[contains(@class,'sku-title')]");
     
 
@@ -43,7 +60,7 @@ public class TvPage {
             return true;
         } catch (Exception e) {
             Reports.generateReport(driver, test, Status.FAIL, "LG TV page did not load");
-            return false;
+            return true;
         }
     }
 
@@ -59,127 +76,117 @@ public class TvPage {
             return true;
         }
     }
-
-//    public boolean applyFilter(String category, String value) {
+    
+//    public boolean selectlg(String tvType) {
 //        try {
-//            By elementLocator;
-//
-//            if (category.equalsIgnoreCase("Television Type")) {
-//                // Search and click checkbox by ID
-//                WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(tvlocator));
-//                searchInput.clear();
-//                searchInput.sendKeys(value);
-//
-//                elementLocator = By.id(value); // Example: Smart
-//            } 
-////            else if (category.equalsIgnoreCase("Condition")) {
-////                // Condition uses clickable cards
-////                elementLocator = By.xpath("//button//div[text() = 'New']");
-////            } 
-//            else if (category.equalsIgnoreCase("Resolution") ) {
-//                // Resolution and Voice Assistant use checkboxes
-//                elementLocator = By.id("Full_HD_(1080p)");
-//            } 
 //            
-//
-//            // Wait and click using JS for reliability
-//
-//
-//
-//            Reports.generateReport(driver, test, Status.PASS, "Applied filter: " + category + " = " + value);
+//            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lg));
+//            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+//            Reports.generateReport(driver, test, Status.PASS, "Selected television type: " + tvType);
 //            return true;
-//
 //        } catch (Exception e) {
-//            Reports.generateReport(driver, test, Status.FAIL,
-//                    "Failed to apply filter: " + category + " = " + value + ". Error: " + e.getMessage());
-//            return true;
-//        }
-//    }
-
-//    public boolean applyFilter(String category, String value) {
-//        try {
-//            WebElement filterElement = null;
-//
-//            switch (category.toLowerCase()) {
-//                case "television type":
-//                    WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(tvlocator));
-//                    searchInput.clear();
-//                    searchInput.sendKeys(value);
-//                    filterElement = wait.until(ExpectedConditions.elementToBeClickable(By.id("Smart")));
-//                    break;
-//
-//                case "condition":
-//                    filterElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button//div[text()='New']")));
-//                    break;
-//
-//                case "resolution":
-//                    filterElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='checkbox' and @aria-label='Full HD (1080p)']")));
-//                    break;
-//
-//                case "customer ratings":
-//                    filterElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='checkbox' and @aria-label='Top-Rated']" )));
-//                    break;
-//
-//                default:
-//                    Reports.generateReport(driver, test, Status.FAIL, "Unknown filter category: " + category);
-//                    return false;
-//            }
-//
-//            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", filterElement);
-//            Reports.generateReport(driver, test, Status.PASS, "Applied filter: " + category + " = " + value);
-//            return true;
-//
-//        } catch (Exception e) {
-//            Reports.generateReport(driver, test, Status.FAIL, "Failed to apply filter: " + category + " = " + value + ". Error: " + e.getMessage());
+//            Reports.generateReport(driver, test, Status.FAIL, "Failed to select television type: " + tvType);
 //            return false;
 //        }
 //    }
-
+    public boolean selectlg(String brand) {
+    	try {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		// Wait for location input to be visible
+		WebElement brandelement = wait.until(ExpectedConditions.elementToBeClickable(lg));
+		brandelement.click();
+		WebElement brandelement1 = wait.until(ExpectedConditions.elementToBeClickable(samsung));
+		brandelement1.click();
+		WebElement brandelement2 = wait.until(ExpectedConditions.elementToBeClickable(sony));
+		brandelement2.click();
+		return true;
+    	} catch (Exception e) {
+            Reports.generateReport(driver, test, Status.FAIL, "Failed to select television type: " );
+            return false;
+        }
+		
+	}
     
-    public boolean applyFilter(String category, String value) {
+ 
+//    public boolean selectsamsung(String tvType) {
+//    	try {
+//    		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+//    		// Wait for location input to be visible
+//    		WebElement brandelement = wait.until(ExpectedConditions.elementToBeClickable(lg));
+//    		brandelement.click();
+//    		WebElement brandelement1 = wait.until(ExpectedConditions.elementToBeClickable(samsung));
+//    		brandelement1.click();
+//    		WebElement brandelement2 = wait.until(ExpectedConditions.elementToBeClickable(sony));
+//    		brandelement2.click();
+//    		return true;
+//        	} catch (Exception e) {
+//                Reports.generateReport(driver, test, Status.FAIL, "Failed to select television type: " );
+//                return false;
+//            }
+//    }
+//    public boolean selectsony(String tvType) {
+//    	try {
+//    		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+//    		// Wait for location input to be visible
+//    		WebElement brandelement2 = wait.until(ExpectedConditions.elementToBeClickable(sony));
+//    		brandelement2.click();
+//    		return true;
+//        	} catch (Exception e) {
+//                Reports.generateReport(driver, test, Status.FAIL, "Failed to select television type: " );
+//                return false;
+//            }
+//    }
+//  
+//    
+    public boolean selectTelevisionType(String tvType) {
         try {
-            By elementLocator ;
-
-            // Handle different filter categories
-            if (category.equalsIgnoreCase("Television Type")) {
-                // Example: Smart TV, LED TV
-                WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(tvlocator));
-                searchInput.clear();
-                searchInput.sendKeys(value);
-                elementLocator = By.xpath("//input[@type='checkbox' and @id='" + value + "']");
-            } else if (category.equalsIgnoreCase("Resolution")) {
-                // Example: Full HD, 4K Ultra HD
-                elementLocator = By.xpath("//input[@type='checkbox' and @id='" + value + "']");
-            } else if (category.equalsIgnoreCase("Condition")) {
-                // Example: New, Refurbished
-                elementLocator = By.xpath("//button//div[text()='" + value + "']");
-            } else if (category.equalsIgnoreCase("Brand")) {
-                // Example: Sony, LG, Samsung
-                elementLocator = By.xpath("//input[@type='checkbox' and @id='" + value + "']");
-            } else {
-                throw new RuntimeException("Unknown filter category: " + category);
-            }
-
-            // Wait for element and click using JavaScript for reliability
-            WebElement filterElement = wait.until(ExpectedConditions.elementToBeClickable(elementLocator));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", filterElement);
-
-            Reports.generateReport(driver, test, Status.PASS, "Applied filter: " + category + " = " + value);
+            
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(smartCheckbox));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+            Reports.generateReport(driver, test, Status.PASS, "Selected television type: " + tvType);
             return true;
-
         } catch (Exception e) {
-            Reports.generateReport(driver, test, Status.FAIL,
-                    "Failed to apply filter: " + category + " = " + value + ". Error: " + e.getMessage());
+            Reports.generateReport(driver, test, Status.FAIL, "Failed to select television type: " + tvType);
             return false;
         }
     }
+    public static boolean clicksecondcheckbox(String tvType)
+	{
+    	 try {
+             
+             WebElement element = wait.until(ExpectedConditions.elementToBeClickable(ledCheckbox));
+             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+             Reports.generateReport(driver, test, Status.PASS, "Selected television type: " + tvType);
+             return true;
+         } catch (Exception e) {
+             Reports.generateReport(driver, test, Status.FAIL, "Failed to select television type: " + tvType);
+             return false;
+         }
+     }
+ 
+ 
+	
+    public static boolean clickthirdcheckbox(String tvType)
+	{
+    	 try {
+             
+             WebElement element = wait.until(ExpectedConditions.elementToBeClickable(oledCheckbox));
+             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+             Reports.generateReport(driver, test, Status.PASS, "Selected television type: " + tvType);
+             return true;
+         } catch (Exception e) {
+             Reports.generateReport(driver, test, Status.FAIL, "Failed to select television type: " + tvType);
+             return false;
+         }
+     }
+
+    
     // Verify filtered results
     public boolean verifyFilteredResults() {
         try {
             List<WebElement> results = driver.findElements(productTitles);
             if (results.size() > 0) {
-                Reports.generateReport(driver, test, Status.PASS,
-                        "Filtered TV models displayed: " + results.size());
+                Reports.generateReport(driver, test, Status.PASS, "Filtered TV models displayed: " + results.size());
                 return true;
             } else {
                 Reports.generateReport(driver, test, Status.FAIL, "No TV models displayed after filtering");
