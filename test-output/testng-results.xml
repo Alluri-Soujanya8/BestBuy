@@ -1,63 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="4" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-13T17:05:54 IST" name="Default suite" finished-at="2025-11-13T17:08:47 IST" duration-ms="173535">
+  <suite started-at="2025-11-14T15:25:56 IST" name="Default suite" finished-at="2025-11-14T15:30:08 IST" duration-ms="251877">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@4da4253]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-11-13T17:05:54 IST" name="Default test" finished-at="2025-11-13T17:08:47 IST" duration-ms="173535">
-      <class name="com.runner.TestRunnerTestNG">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.TestRunnerTestNG@4da4253]" started-at="2025-11-13T17:05:54 IST" name="setUpClass" finished-at="2025-11-13T17:05:55 IST" duration-ms="1381" status="PASS">
+    <test started-at="2025-11-14T15:25:56 IST" name="Default test" finished-at="2025-11-14T15:30:08 IST" duration-ms="251877">
+      <class name="com.Runner.TestRunnerTestNG">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" started-at="2025-11-14T15:25:56 IST" name="setUpClass" finished-at="2025-11-14T15:25:57 IST" duration-ms="868" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@2b1d1a5]]>
+                <![CDATA[org.testng.TestRunner@73da7f08]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@4da4253]" started-at="2025-11-13T17:05:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-13T17:07:21 IST" duration-ms="85582" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" started-at="2025-11-14T15:25:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-14T15:26:47 IST" duration-ms="50687" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verifiying adding TV by brand and checkout as guest"]]>
+                <![CDATA["test Top Deals Functionality"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["BestBuy TV&HomeTheatre Module"]]>
+                <![CDATA["Best Buy Top Deals Page"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.TestRunnerTestNG@4da4253]" started-at="2025-11-13T17:07:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-13T17:08:47 IST" duration-ms="86351" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" started-at="2025-11-14T15:26:47 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-14T15:27:42 IST" duration-ms="54511" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verifiying adding TV by brand and checkout as guest"]]>
+                <![CDATA["test Saved Items Functionality"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["BestBuy TV&HomeTheatre Module"]]>
+                <![CDATA["Best Buy Top Deals Page"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.TestRunnerTestNG@4da4253]" started-at="2025-11-13T17:08:47 IST" name="tearDownClass" finished-at="2025-11-13T17:08:47 IST" duration-ms="151" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" started-at="2025-11-14T15:27:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-14T15:28:40 IST" duration-ms="58390" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["test compare functionality with valid data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Best Buy Top Deals Page"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <i tabindex="-1" id="remove-6614109">...</i> is not clickable at point (604, 8). Other element would receive the click: <div class="top-nav top-nav-with-gift-ideas-button">...</div>
+  (Session info: chrome=142.0.7444.135)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a9de1fb7999c447bcd3a30262ab03703, clickElement {id=f.82F7239F04D693B5512E1F26FE48A3D4.d.33C78C61C95403F35BA5E459EBB3119D.e.767}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 141.0.7390.78 (2b53b0e231fc..., userDataDir: C:\Users\karriv\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50950}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50950/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (a9de1fb7999c447bcd3a30262ab03703)] -> xpath: //i[@id='remove-6614109']]
+Session ID: a9de1fb7999c447bcd3a30262ab03703]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <i tabindex="-1" id="remove-6614109">...</i> is not clickable at point (604, 8). Other element would receive the click: <div class="top-nav top-nav-with-gift-ideas-button">...</div>
+  (Session info: chrome=142.0.7444.135)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a9de1fb7999c447bcd3a30262ab03703, clickElement {id=f.82F7239F04D693B5512E1F26FE48A3D4.d.33C78C61C95403F35BA5E459EBB3119D.e.767}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 141.0.7390.78 (2b53b0e231fc..., userDataDir: C:\Users\karriv\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50950}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50950/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (a9de1fb7999c447bcd3a30262ab03703)] -> xpath: //i[@id='remove-6614109']]
+Session ID: a9de1fb7999c447bcd3a30262ab03703
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy29.click(Unknown Source)
+at com.Pages.UserPage.scrollUpAndRemoveLaptop(UserPage.java:409)
+at com.StepDefinitionTestNG.Profile.scroll_up_and_click_remove_on_first_laptop(Profile.java:131)
+at ✽.Scroll up and click Remove on First Laptop(file:///C:/Training/Java/BestBuy-TopDeals/BestBuy_TopDeals/./src/test/resources/com/Features/TopDeals.feature:51)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" started-at="2025-11-14T15:28:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-14T15:29:32 IST" duration-ms="51904" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["test Add to Cart Functionality with valid data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Best Buy Top Deals Page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" started-at="2025-11-14T15:29:32 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-11-14T15:30:07 IST" duration-ms="34946" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Test Holiday Deals Functionality"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Best Buy Top Deals Page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.Runner.TestRunnerTestNG@4da4253]" started-at="2025-11-14T15:30:07 IST" name="tearDownClass" finished-at="2025-11-14T15:30:08 IST" duration-ms="521" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-      </class> <!-- com.runner.TestRunnerTestNG -->
+      </class> <!-- com.Runner.TestRunnerTestNG -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
