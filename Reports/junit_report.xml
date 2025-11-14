@@ -1,25 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="172.491" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-11-13T11:35:55.038922600Z">
-<testcase classname="BestBuy TV&amp;HomeTheatre Module" name="Verifiying adding TV by brand and checkout as guest - #1.1" time="85.442">
+<testsuite name="Cucumber" time="251.199" tests="5" skipped="0" failures="1" errors="0" timestamp="2025-11-14T09:55:56.739120300Z">
+<testcase classname="Best Buy Top Deals Page" name="test Top Deals Functionality" time="50.594">
 <system-out><![CDATA[
-Given Menu Bar should avaliable.............................................passed
-And click on Menu Bar.......................................................passed
-When I click on Tv&Home Theatre.............................................passed
-And I click on TVs by Brand.................................................passed
-And I select from sheet 0  0................................................passed
-Then the TV listingpage for the brand  should be displayed..................passed
-Then I click on Brand.......................................................passed
+Given Top Deals functionality should be availble............................passed
+When i click on Top Deals link..............................................passed
+And should display Top Deals page...........................................passed
+And should click on Computer & Tablet Deals.................................passed
+And should click on Laptops.................................................passed
+Then should display Laptop Deals............................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="BestBuy TV&amp;HomeTheatre Module" name="Verifiying adding TV by brand and checkout as guest - #1.2" time="86.344">
+<testcase classname="Best Buy Top Deals Page" name="test Saved Items Functionality" time="54.505">
 <system-out><![CDATA[
-Given Menu Bar should avaliable.............................................passed
-And click on Menu Bar.......................................................passed
-When I click on Tv&Home Theatre.............................................passed
-And I click on TVs by Brand.................................................passed
-And I select from sheet 0  1................................................passed
-Then the TV listingpage for the brand  should be displayed..................passed
-Then I click on Brand.......................................................passed
+Given Top Deals functionality should be availble............................passed
+When i click on Top Deals link..............................................passed
+And should display Top Deals page...........................................passed
+And should click on Computer & Tablet Deals.................................passed
+And should click on Laptops.................................................passed
+Then should display Laptop Deals............................................passed
+Given User Laptop Deals page should scroll to Featured deals................passed
+When i click on save option for first laptop................................passed
+And click on save option for second laptop..................................passed
+And scroll up to click on Saved Items.......................................passed
+Then click on See all your saved items......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Best Buy Top Deals Page" name="test compare functionality with valid data - #1.1" time="58.379">
+<failure type="org.openqa.selenium.ElementClickInterceptedException" message="element click intercepted: Element &lt;i tabindex=&quot;-1&quot; id=&quot;remove-6614109&quot;&gt;...&lt;/i&gt; is not clickable at point (604, 8). Other element would receive the click: &lt;div class=&quot;top-nav top-nav-with-gift-ideas-button&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=142.0.7444.135)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a9de1fb7999c447bcd3a30262ab03703, clickElement {id=f.82F7239F04D693B5512E1F26FE48A3D4.d.33C78C61C95403F35BA5E459EBB3119D.e.767}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 141.0.7390.78 (2b53b0e231fc..., userDataDir: C:\Users\karriv\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50950}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50950/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (a9de1fb7999c447bcd3a30262ab03703)] -&gt; xpath: //i[@id='remove-6614109']]
+Session ID: a9de1fb7999c447bcd3a30262ab03703">
+<![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <i tabindex="-1" id="remove-6614109">...</i> is not clickable at point (604, 8). Other element would receive the click: <div class="top-nav top-nav-with-gift-ideas-button">...</div>
+  (Session info: chrome=142.0.7444.135)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a9de1fb7999c447bcd3a30262ab03703, clickElement {id=f.82F7239F04D693B5512E1F26FE48A3D4.d.33C78C61C95403F35BA5E459EBB3119D.e.767}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.135, chrome: {chromedriverVersion: 141.0.7390.78 (2b53b0e231fc..., userDataDir: C:\Users\karriv\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50950}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50950/devtoo..., se:cdpVersion: 142.0.7444.135, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (a9de1fb7999c447bcd3a30262ab03703)] -> xpath: //i[@id='remove-6614109']]
+Session ID: a9de1fb7999c447bcd3a30262ab03703
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy29.click(Unknown Source)
+	at com.Pages.UserPage.scrollUpAndRemoveLaptop(UserPage.java:409)
+	at com.StepDefinitionTestNG.Profile.scroll_up_and_click_remove_on_first_laptop(Profile.java:131)
+	at ✽.Scroll up and click Remove on First Laptop(file:///C:/Training/Java/BestBuy-TopDeals/BestBuy_TopDeals/./src/test/resources/com/Features/TopDeals.feature:51)
+]]>
+</failure>
+<system-out><![CDATA[
+Given Top Deals functionality should be availble............................passed
+When i click on Top Deals link..............................................passed
+And should display Top Deals page...........................................passed
+And should click on Computer & Tablet Deals.................................passed
+And should click on Laptops.................................................passed
+Then should display Laptop Deals............................................passed
+Given User Laptop Deals page should scroll to Featured deals................passed
+When i click on save option for first laptop................................passed
+And click on save option for second laptop..................................passed
+And scroll up to click on Saved Items.......................................passed
+Then click on See all your saved items......................................passed
+Given Saved Items Page should be open.......................................passed
+When i select First checkbox of first Laptop 0 1............................passed
+And select second checkbox of second Laptop 0 1.............................passed
+And click on Compare button.................................................passed
+And verify Compare Products.................................................passed
+And verify and click Toggle Switch..........................................passed
+Then Scroll up and click Remove on First Laptop.............................failed
+]]></system-out>
+</testcase>
+<testcase classname="Best Buy Top Deals Page" name="test Add to Cart Functionality with valid data - #1.1" time="51.901">
+<system-out><![CDATA[
+Given Top Deals functionality should be availble............................passed
+When i click on Top Deals link..............................................passed
+And should display Top Deals page...........................................passed
+And should click on Computer & Tablet Deals.................................passed
+And should click on Laptops.................................................passed
+Then should display Laptop Deals............................................passed
+And User Laptop Deals page should scroll to Featured deals..................passed
+And click Add to Cart for first Laptop 1 1..................................passed
+And click Add to Cart for second Laptop 1 1.................................passed
+And click on Cart...........................................................passed
+Then verify Cart............................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Best Buy Top Deals Page" name="Test Holiday Deals Functionality" time="34.944">
+<system-out><![CDATA[
+Given Top Deals functionality should be availble............................passed
+When i click on Top Deals link..............................................passed
+And should display Top Deals page...........................................passed
+And should click Shop now...................................................passed
+Then verify All the Holiday Deals...........................................passed
 ]]></system-out>
 </testcase>
 </testsuite>
