@@ -23,7 +23,7 @@ public class Hooks extends BaseSteps {
 	public static void beforeAll() 
 	{
 
-		spark = new ExtentSparkReporter("reportPath");   //for extent report
+		spark = new ExtentSparkReporter(".\\target\\ExtentReport.html");   //for extent report
 		extReports = new ExtentReports();
 		extReports.attachReporter(spark);
 	}
@@ -54,7 +54,7 @@ public class Hooks extends BaseSteps {
 		if (driver != null) {
 			driver.quit(); // ✅ Close browser once after all scenarios
 		}
-		extReports.flush();
+		
 
 
 

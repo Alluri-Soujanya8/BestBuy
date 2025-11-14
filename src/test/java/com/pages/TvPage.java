@@ -3,8 +3,12 @@ package com.pages;
 import java.time.Duration;
 import java.util.List;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,6 +30,9 @@ public class TvPage {
     private static By smartCheckbox = By.id("Smart");
     private static By ledCheckbox = By.id("LED");
     private static By oledCheckbox = By.id("OLED");
+
+    private static By search = By.xpath("//*[@id=\\\"televisiontype_facet-search-bar-input\\\"]");
+    		
     
 //    @FindBy(xpath = "///a[text()='LG TVs']")
 //    private WebElement lg;
@@ -41,7 +48,6 @@ public class TvPage {
     
     private static By lg = By.xpath("//a[text()='LG TVs']");
     private static By samsung = By.xpath("//a[text()='Samsung TVs']");
-    private static By sony = By.xpath("//a[text()='Sony TVs']");
    
     private By productTitles = By.xpath("//div[contains(@class,'sku-title')]");
     
@@ -77,28 +83,13 @@ public class TvPage {
         }
     }
     
-//    public boolean selectlg(String tvType) {
-//        try {
-//            
-//            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lg));
-//            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-//            Reports.generateReport(driver, test, Status.PASS, "Selected television type: " + tvType);
-//            return true;
-//        } catch (Exception e) {
-//            Reports.generateReport(driver, test, Status.FAIL, "Failed to select television type: " + tvType);
-//            return false;
-//        }
-//    }
     public boolean selectlg(String brand) {
     	try {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		// Wait for location input to be visible
 		WebElement brandelement = wait.until(ExpectedConditions.elementToBeClickable(lg));
 		brandelement.click();
-		WebElement brandelement1 = wait.until(ExpectedConditions.elementToBeClickable(samsung));
-		brandelement1.click();
-		WebElement brandelement2 = wait.until(ExpectedConditions.elementToBeClickable(sony));
-		brandelement2.click();
+	
 		return true;
     	} catch (Exception e) {
             Reports.generateReport(driver, test, Status.FAIL, "Failed to select television type: " );
@@ -106,38 +97,22 @@ public class TvPage {
         }
 		
 	}
+  
+    public boolean selectsamsung(String tvType) {
+    	try {
+    		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    		// Wait for location input to be visible
+    		
+    		WebElement brandelement1 = wait.until(ExpectedConditions.elementToBeClickable(samsung));
+    		brandelement1.click();
+    		
+    		return true;
+        	} catch (Exception e) {
+                Reports.generateReport(driver, test, Status.FAIL, "Failed to select television type: " );
+                return false;
+            }
+    }
     
- 
-//    public boolean selectsamsung(String tvType) {
-//    	try {
-//    		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-//    		// Wait for location input to be visible
-//    		WebElement brandelement = wait.until(ExpectedConditions.elementToBeClickable(lg));
-//    		brandelement.click();
-//    		WebElement brandelement1 = wait.until(ExpectedConditions.elementToBeClickable(samsung));
-//    		brandelement1.click();
-//    		WebElement brandelement2 = wait.until(ExpectedConditions.elementToBeClickable(sony));
-//    		brandelement2.click();
-//    		return true;
-//        	} catch (Exception e) {
-//                Reports.generateReport(driver, test, Status.FAIL, "Failed to select television type: " );
-//                return false;
-//            }
-//    }
-//    public boolean selectsony(String tvType) {
-//    	try {
-//    		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-//    		// Wait for location input to be visible
-//    		WebElement brandelement2 = wait.until(ExpectedConditions.elementToBeClickable(sony));
-//    		brandelement2.click();
-//    		return true;
-//        	} catch (Exception e) {
-//                Reports.generateReport(driver, test, Status.FAIL, "Failed to select television type: " );
-//                return false;
-//            }
-//    }
-//  
-//    
     public boolean selectTelevisionType(String tvType) {
         try {
             
@@ -197,4 +172,16 @@ public class TvPage {
             return true;
         }
     }
+    
+//    public void clickfirst(String tv) 
+//    {
+//    	
+//    	 WebElement searchInput = driver.findElement(search);
+//	        searchInput.click();
+//
+//	        searchInput.sendKeys(tv);
+//	        searchInput.sendKeys(Keys.ARROW_DOWN);
+//	        searchInput.sendKeys(Keys.ENTER);
+//    }
+    
 }

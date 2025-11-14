@@ -10,9 +10,9 @@ import io.cucumber.junit.CucumberOptions;
 			features = ".\\src\\test\\resources\\com\\Features\\TV&HomeTheatre.feature",
 			glue = {"com.stepdefinition"},
 			       
-		    plugin = {"pretty", "html:junitreportsjunit/cucumber-reports.html",
+		    plugin = {"pretty","html:junitreportsjunit/cucumber-reports.html",
 		    		   "json:junitreportsjunit/json-report.json",
-		    		   "junit:junitreportsjunit/junit_report.xml"},tags = "@Menu"
+		    		   "junit:junitreportsjunit/junit_report.xml"},monochrome = true, tags = "@Menu"
 		    		   )
 public class TestRunnerJunit {
 	

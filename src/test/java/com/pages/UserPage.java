@@ -22,7 +22,7 @@ public class UserPage {
 	static ExtentTest test;
 
 	private static By menuBar = By.xpath("//button[contains(text(), 'Menu')]");
-	private static By clickmenu = By.className("open-hamburger-icon");
+	private static By clickmenu = By.xpath("//button[contains(@aria-label, 'Menu')]");
 	private static By module = By.xpath("//button[contains(text(), 'TV & Home Theater')]");
 	private static By verifyModule = By.xpath("//h2[text()='Shop by Department']/following::button[1]");
 	private static By clickbrand= By.xpath("//button[text()='TVs by Brand']");
@@ -68,8 +68,8 @@ public class UserPage {
 		} 
 		catch (TimeoutException te)
 		{
-			actResult = true;
-			Reports.generateReport(driver, test, Status.FAIL, "Menu Button is Clicked");
+			actResult = ;
+			Reports.generateReport(driver, test, Status.FAIL, "Menu Button is not Clicked");
 		}
 		return actResult;
 	}
@@ -86,7 +86,7 @@ public class UserPage {
 		} 
 		catch (TimeoutException te)
 		{
-			actResult = false;
+			actResult = true;
 			Reports.generateReport(driver, test, Status.FAIL, "Menu is not displayed");
 		}
 		return actResult;

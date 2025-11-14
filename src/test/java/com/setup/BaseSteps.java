@@ -31,10 +31,6 @@ public class BaseSteps {
 		if (browser.equalsIgnoreCase("chrome"))             
 		{
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--disable-notifications"); // Disable notifications
-	        options.addArguments("--disable-geolocation");   // Disable location prompts
-	        options.addArguments("--start-maximized");
-			
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			
@@ -54,14 +50,8 @@ public class BaseSteps {
 			return;
 		}
 		String url = prop.getProperty("sourceUrl");
+		
 		driver.get(url);
-		
-//		String url2 = prop.getProperty("homePage");
-		
-//		driver.get(url2);
-//
-//		String url3 = prop.getProperty("tvPage");
-//		driver.get(url3);
 
 		driver.manage().window().maximize();
 
@@ -70,15 +60,6 @@ public class BaseSteps {
 		WebElement usButton = new WebDriverWait(driver, Duration.ofSeconds(15))
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//h4[text()='United States']")));
 		usButton.click();
-		
-		try {
-        	// Switch to alert and dismiss (Block notifications)
-        	Alert alert = driver.switchTo().alert();
-        	alert.dismiss(); // or alert.accept() if you want to allow
-        	
-        } catch (NoAlertPresentException e) {
-//        	System.out.println("No notification popup appeared");
-        }
 	}
 
 	public static void sleep(int msec)                     // Handling waits
