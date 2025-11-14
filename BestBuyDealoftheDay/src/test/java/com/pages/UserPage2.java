@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
@@ -51,7 +52,8 @@ public class UserPage2 {
 
 //    @FindBy(xpath = "//*[@id=\"autocomplete-search-bar-container\"]")
 //    private WebElement searchBar;
-    @FindBy(xpath = "//div[contains(@class,'sugg-lv-search-bar')]")
+    //@FindBy(xpath = "//div[contains(@class,'sugg-lv-search-bar')]")
+    @FindBy(id = "autocomplete-search-bar-container")
     ////button[@id='searchButton']
     private WebElement searchButton;
 //    @FindBy(xpath = "//div[contains(@class,'product-item')]")
@@ -69,11 +71,15 @@ public class UserPage2 {
     //(//a[@class='wf-offer-link wf-image-wrapper'])[2]
     private WebElement firstBonusDealProduct;
 
-    @FindBy(xpath = "//button[@data-test-id='add-to-cart'][1]")
+    @FindBy(xpath = "//span[@class = 'cart-label']")
     private WebElement addToCartButton;
 
-    @FindBy(xpath = "//div[text()='Added to cart']")
+    @FindBy(xpath = "//h3[text() ='Your list is currently empty']")
     private WebElement addedToCartMessage;
+
+//    @FindBy(xpath = "//h1[contains(@class,'product-title')]")
+//    private WebElement productTitle;
+
 
     
 	public UserPage2(WebDriver driver, ExtentTest test)
@@ -176,36 +182,64 @@ public class UserPage2 {
         }
     }
     
-    //============================================================
-    //Third Scenario
+
+//======================================Third Scenario===============================================
     
-    public boolean enterProductFromExcel(int sheetIndex, int rowIndex) {
-        String productName = ExcelReader.getProduct(sheetIndex, rowIndex);
-        if (productName == null || productName.isEmpty()) return false;
-
-        try {
-        	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-            //driver.findElement(By.id("gh-search-input")).sendKeys(productName);
-            ////div[contains(@class,'sugg-lv-search-bar')]
-            //WebElement searchInput = wait.until(ExpectedConditions.elementToBeClickable(searchButton));
-        	WebElement searchInput = wait.until(ExpectedConditions.elementToBeClickable(By.id("gh-search-input")));
-            searchInput.clear();
-
-            
-        	searchInput.clear();
-            searchInput.sendKeys(productName);
-            //searchInput.sendKeys(Keys.ENTER);////button[@data-testid="SearchButton-TestID"]
-            //WebElement searchbutton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='autocomplete-search-button']")));
-            WebElement searchButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("autocomplete-search-button")));
-            
-            searchButton.click();
-            return true;
-        } catch (Exception e) {
-            System.out.println("Error entering product: " + e.getMessage());
-            return false;
-        }
+//    public boolean enterProductFromExcel(int sheetIndex, int rowIndex) {
+//        String productName = ExcelReader.getProduct(sheetIndex, rowIndex);
+//        if (productName == null || productName.isEmpty()) return false;
+//
+//        try {
+//        	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//
+//            //driver.findElement(By.id("gh-search-input")).sendKeys(productName);
+//            ////div[contains(@class,'sugg-lv-search-bar')]
+//            //WebElement searchInput = wait.until(ExpectedConditions.elementToBeClickable(searchButton));
+//        	WebElement searchInput = wait.until(ExpectedConditions.elementToBeClickable(By.id("gh-search-input")));
+//            searchInput.clear();
+//
+//            searchInput.sendKeys(productName);
+//            //searchInput.sendKeys(Keys.ENTER);////button[@data-testid="SearchButton-TestID"]
+//            //WebElement searchbutton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='autocomplete-search-button']")));
+//            WebElement searchButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("autocomplete-search-button")));
+//            
+//            searchButton.click();
+//            return true;
+//        } catch (Exception e) {
+//            System.out.println("Error entering product: " + e.getMessage());
+//            return false;
+//        }
+//    }
+    
+//    @FindBy(xpath = "//input[@id='gh-search-input']") // Locator for BestBuy search box
+//    WebElement searchBox; 
+    
+    public void enterProductAndSearch(String productName) {
+    	//searchButton.clear();
+    	System.out.println("Product from Excel: " + productName);
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    //WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(500));
+    wait.until(ExpectedConditions.presenceOfElementLocated(By.id("autocomplete-search-bar-container")));
+    wait.until(ExpectedConditions.visibilityOf(searchButton));
+    wait.until(ExpectedConditions.elementToBeClickable(searchButton));
+    
+    try
+    {
+    	searchButton.sendKeys(productName);
+    	searchButton.sendKeys(Keys.ENTER); // Press Enter to search
     }
+    catch (ElementNotInteractableException e)
+    {
+
+    		JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].value='" + productName + "';", searchButton);
+        js.executeScript("arguments[0].dispatchEvent(new Event('change'));", searchButton);
+        js.executeScript("arguments[0].dispatchEvent(new KeyboardEvent('keydown', {'key':'Enter'}));", searchButton);
+
+    }
+    }
+
+
 
     public boolean clickSearchButton() {
         try {
@@ -250,7 +284,7 @@ public class UserPage2 {
 //        }
 //    }
 
-    public boolean verifyProductDetailPage(int sheetIndex, int rowIndex) {
+//    public boolean verifyProductDetailPage(int sheetIndex, int rowIndex) {
 //        try {
 //            wait.until(ExpectedConditions.visibilityOf(productTitle));
 //            Reports.generateReport(driver, test, Status.PASS, "Product detail page displayed successfully");
@@ -259,29 +293,29 @@ public class UserPage2 {
 //            Reports.generateReport(driver, test, Status.FAIL, "Product detail page not displayed");
 //            return false;
 //        }
-    	String productName = ExcelReader.getProduct(sheetIndex, rowIndex);
-        if (productName == null || productName.isEmpty()) {
-            System.out.println("Product name is missing or unreadable from Excel.");
-            return false;
-        }
-        return driver.getPageSource().toLowerCase().contains(productName.toLowerCase());
-
-
-//        try {
-//            String pageContent = driver.getPageSource().toLowerCase();
-//            return pageContent.contains(productName.toLowerCase());
-//        } catch (Exception e) {
-//            System.out.println("Error verifying product detail: " + e.getMessage());
+//    	    String productName = ExcelReader.getProduct(sheetIndex, rowIndex);
+//        if (productName == null || productName.isEmpty()) {
+//            System.out.println("Product name is missing or unreadable from Excel.");
 //            return false;
 //        }
+//        return driver.getPageSource().toLowerCase().contains(productName.toLowerCase());
+//
+//
+////        try {
+////            String pageContent = driver.getPageSource().toLowerCase();
+////            return pageContent.contains(productName.toLowerCase());
+////        } catch (Exception e) {
+////            System.out.println("Error verifying product detail: " + e.getMessage());
+////            return false;
+////        }
+//
+//        
+//
+//    }
+//    
+//=======================================Fourth scenario==================================================
 
-        
-
-    }
-    
-    //----------------------------4th scenario-----------------------------
-
-public boolean clickFirstBonusDealProduct() {
+    public boolean clickFirstBonusDealProduct() {
         try {
             WebElement product = wait.until(ExpectedConditions.elementToBeClickable(firstBonusDealProduct));
             product.click();
@@ -292,27 +326,32 @@ public boolean clickFirstBonusDealProduct() {
         }
     }
 
-    public boolean clickAddToCart() {
+public boolean clickAddToCart() {
         try {
             WebElement button = wait.until(ExpectedConditions.elementToBeClickable(addToCartButton));
             button.click();
+            Reports.generateReport(driver, test, Status.PASS, "Clicked Add to Cart button");
             return true;
         } catch (TimeoutException e) {
-            System.out.println("Add to Cart button not clickable");
+            Reports.generateReport(driver, test, Status.FAIL, "Add to Cart button not clickable");
             return false;
         }
     }
 
-    public boolean verifyAddedToCart() {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(addedToCartMessage));
-            return true;
-        } catch (TimeoutException e) {
-            System.out.println("Added to cart message not displayed");
-            return false;
-        }
-    }
+public boolean verifyAddedToCart() {
+       try {
+           wait.until(ExpectedConditions.visibilityOf(addedToCartMessage));
+           Reports.generateReport(driver, test, Status.PASS, "Added to cart message displayed");
+           return true;
+       } catch (TimeoutException e) {
+           Reports.generateReport(driver, test, Status.FAIL, "Added to cart message not displayed");
+           return false;
+       }
+   }
 
+
+
+//=========================================Fifth Scenario===========================================================
 
     
     

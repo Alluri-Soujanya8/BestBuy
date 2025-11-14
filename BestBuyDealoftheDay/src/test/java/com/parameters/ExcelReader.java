@@ -1,56 +1,100 @@
 package com.parameters;
- 
-import java.io.File;
-import java.io.FileInputStream;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
- 
-public class ExcelReader {
+import java.io.FileInputStream;
+import java.io.IOException;
 
-    private static String filepath = "src/test/resources/ExcelData/scenariooutline3.xlsx";
+public class ExcelReader 
+{
 
-	public static String getProduct(int sheetIndex, int rowIndex) {
-	    try {
-	        FileInputStream file = new FileInputStream(filepath);
-	        Workbook workbook = new XSSFWorkbook(file);
-	        Sheet sheet = workbook.getSheetAt(sheetIndex);
-	        Row row = sheet.getRow(rowIndex);
-	        DataFormatter formatter = new DataFormatter();
-//	        String product = formatter.formatCellValue(row.getCell(0)); // Column A
+    public static String getCellData(String filePath, int sheetIndex, int rowIndex, int colIndex) {
+        String cellValue = "";
+        try (FileInputStream fis = new FileInputStream(filePath);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+            Sheet sheet = workbook.getSheetAt(sheetIndex);
+            Row row = sheet.getRow(rowIndex);
+            Cell cell = row.getCell(colIndex);
+            cellValue = cell.getStringCellValue();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return cellValue;
+    }
+}
+
+
+//public static List<String> getAllProducts(String filePath, int sheetIndex) {
+//        List<String> products = new ArrayList<>();
+//        try (FileInputStream fis = new FileInputStream(filePath);
+//             Workbook workbook = new XSSFWorkbook(fis)) {
+//            Sheet sheet = workbook.getSheetAt(sheetIndex);
+//            for (int i = 1; i <= sheet.getLastRowNum(); i++) { // skip header
+//                Row row = sheet.getRow(i);
+//                if (row != null) {
+//                    Cell cell = row.getCell(0);
+//                    if (cell != null) {
+//                        products.add(cell.toString().trim());
+//                    }
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return products;
+//    }
+
+//public static String getCellData(int sheetIndex, int rowIndex, int colIndex) throws IOException {
+//        FileInputStream fis = new FileInputStream("src\\test\\resources\\ExcelData\\scenariooutline3.xlsx");
+//        Workbook workbook = new XSSFWorkbook(fis);
+//        Sheet sheet = workbook.getSheetAt(sheetIndex);
+//        Row row = sheet.getRow(rowIndex);
+//        Cell cell = row.getCell(colIndex);
+//        String data = cell.getStringCellValue();
+//        workbook.close();
+//        return data;
+//    }
+
+
+
+
+//	public static String getProduct(int sheetIndex, int rowIndex) {
+//	    try {
+//	        FileInputStream file = new FileInputStream(filepath);
+//	        Workbook workbook = new XSSFWorkbook(file);
+//	        Sheet sheet = workbook.getSheetAt(sheetIndex);
+//	        Row row = sheet.getRow(rowIndex);
+//	        DataFormatter formatter = new DataFormatter();
+////	        String product = formatter.formatCellValue(row.getCell(0)); // Column A
+////	        workbook.close();
+////	        file.close();
+////	        return product;
+//	        if (row == null) {
+//	            System.out.println("ExcelReader: Row " + rowIndex + " is null");
+//	            workbook.close();
+//	            file.close();
+//	            return null;
+//	        }
+//
+//	        Cell cell = row.getCell(0);
+//	        if (cell == null) {
+//	            System.out.println("ExcelReader: Cell in row " + rowIndex + " is null");
+//	            workbook.close();
+//	            file.close();
+//	            return null;
+//	        }
+//
+//	        String product = formatter.formatCellValue(cell);
+//	        System.out.println("ExcelReader: Read product = " + product);
 //	        workbook.close();
 //	        file.close();
 //	        return product;
-	        if (row == null) {
-	            System.out.println("ExcelReader: Row " + rowIndex + " is null");
-	            workbook.close();
-	            file.close();
-	            return null;
-	        }
-
-	        Cell cell = row.getCell(0);
-	        if (cell == null) {
-	            System.out.println("ExcelReader: Cell in row " + rowIndex + " is null");
-	            workbook.close();
-	            file.close();
-	            return null;
-	        }
-
-	        String product = formatter.formatCellValue(cell);
-	        System.out.println("ExcelReader: Read product = " + product);
-	        workbook.close();
-	        file.close();
-	        return product;
-
-	    } catch (Exception e) {
-	        System.out.println("Error reading Excel: " + e.getMessage());
-	        return null;
-	    }
-	}
+//
+//	    } catch (Exception e) {
+//	        System.out.println("Error reading Excel: " + e.getMessage());
+//	        return null;
+//	    }
+//	}
 	//String filePath = "src/test/resources/ExcelData/scenariooutline3.xlsx";
 //	public static String[] getProductByRow(String filePath, int sheetNo, int rowNum) throws IOException {
 //	    //String filePath = "src/test/resources/ExcelData/scenariooutline3.xlsx";
@@ -171,4 +215,3 @@ public class ExcelReader {
 // 
 //	        return columnData;
 //	}
-}

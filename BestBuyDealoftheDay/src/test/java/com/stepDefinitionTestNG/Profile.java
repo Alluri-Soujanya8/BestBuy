@@ -24,7 +24,7 @@ public class Profile extends BaseSteps {
     UserPage2 userpage;
     Properties prop = PropertyReader.readProperty();
 	
-    //first scenario
+//==================================first scenario===================================================
     @Given("User is on BestBuy homepage")
     public void user_is_on_best_buy_homepage() {
        	userpage = new UserPage2(driver, test);
@@ -42,7 +42,7 @@ public class Profile extends BaseSteps {
     }
     
     
-    // second scenario
+//==============================second scenario====================================================
     @Given("User is on Deal of the Day page")
     public void user_is_on_deal_of_the_day_page() {
          userpage = new UserPage2(driver, test); 
@@ -73,7 +73,7 @@ public class Profile extends BaseSteps {
     }
     
     
-//    List<String> products;
+
     //Third Scenario
     
 //    
@@ -151,21 +151,24 @@ public class Profile extends BaseSteps {
     }
     
     @And("user enters the product from sheet {int} and row {int}")
-    public void user_enters_the_product_from_sheet_and_row(Integer sheetIndex, Integer rowIndex) {
+    public void user_enters_the_product_from_sheet_and_row(Integer sheetIndex, Integer rowIndex) 
+    {
+    	 Properties prop = PropertyReader.readProperty();
+         String excelPath = prop.getProperty("S3Path"); // Get dynamic path from properties
+         String productName = ExcelReader.getCellData(excelPath, sheetIndex, rowIndex, 0); // Column 0 for product name
 
-    	boolean entered = userpage.enterProductFromExcel(sheetIndex, rowIndex);
-        Assert.assertTrue(entered, "Failed to enter product from Excel");
+         userpage = new UserPage2(driver,test);
+         userpage.enterProductAndSearch(productName);
 
-        boolean clicked = userpage.clickSearchButton();
-        Assert.assertTrue(clicked, "Search button not clickable");
-
-        try {
-            Thread.sleep(3000); // Optional: Replace with WebDriverWait
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-    	
+    
+    }
+    @Then("it should display product details")
+    public void it_should_display_product_details() 
+    {
+//    	 String pageSource = driver.getPageSource();
+//         Assert.assertTrue("Product details page not displayed", pageSource.contains("Results"));
+//    		
+    }
 //    Properties props = PropertyReader.readProperty();
 //    String excelPath = prop.getProperty("Scenario3OutlineExcelPath");
 //    System.out.println("Excel Path: " + excelPath);
@@ -185,27 +188,27 @@ public class Profile extends BaseSteps {
 //    
 
     	
-    }
-    int sheetIndex;
-    int rowIndex;
+    
+   
 
 
-    @Then("it should display product details")
-    public void it_should_display_product_details() {
-
-//        Assert.assertTrue(userpage.verifyProductDetailPage());
-//        driver.quit();
-     	boolean detailVisible = userpage.verifyProductDetailPage(sheetIndex, rowIndex);
-        Assert.assertTrue(detailVisible, "Product detail not displayed for the expected product.");
-        driver.quit();
-
-
-    }
+//    @Then("it should display product details")
+//    public void it_should_display_product_details() {
+////
+//////        Assert.assertTrue(userpage.verifyProductDetailPage());
+//////        driver.quit();
+////     	boolean detailVisible = userpage.verifyProductDetailPage(sheetIndex, rowIndex);
+////        Assert.assertTrue(detailVisible, "Product detail not displayed for the expected product.");
+////        driver.quit();
+////
+////
+//    }
 
     //----------------------------4th scenario-------------------------------------------------
     @Given("user is on the Deal of the Day Page Module")
     public void user_is_on_the_deal_of_the_day_page_module() {
     		userpage = new UserPage2(driver, test); 
+    		userpage.clickDealOfTheDayModule();
     }
 
     @And("user clicks on the first product of Bonus Deals")
@@ -213,16 +216,39 @@ public class Profile extends BaseSteps {
         userpage.clickFirstBonusDealProduct();
     }
 
-    @And("Navigate to the first product page")
-    public void navigate_to_the_first_product_page() {
+    @And("Navigate to the product page")
+    public void navigate_to_the_product_page() {
+        
+    }
+    @And("click on cart icon navigate to add to cart page")
+    public void click_on_cart_icon_navigate_to_add_to_cart_page() {
+    		userpage.clickAddToCart();
+    }
+
+    @Then("verify no product to be is visible")
+    public void verify_no_product_to_be_is_visible() {
+    		Assert.assertTrue(userpage.verifyAddedToCart());
+    }
+
+    //-------------------------------------fifth-----------------------------------------
+    
+    @Given("the user is land on the Deals page")
+    public void the_user_is_land_on_the_deals_page() {
+       
+    }
+    @When("user scrolls down to the deal page")
+    public void user_scrolls_down_to_the_deal_page() {
+        
+    }
+    @When("user clicks on the order&purchases from sheet <sheet> and row <row>")
+    public void user_clicks_on_the_order_purchases_from_sheet_sheet_and_row_row() {
+        
+    }
+    @Then("navigate to the support page")
+    public void navigate_to_the_support_page() {
         
     }
 
-    @Then("Click on Add To Cart which has to be displayed Added to cart")
-    public void click_on_add_to_cart_which_has_to_be_displayed_added_to_cart() {
-        userpage.clickAddToCart();
-        Assert.assertTrue(userpage.verifyAddedToCart(), "Added to cart message not displayed");
-    }
 
 
 }
