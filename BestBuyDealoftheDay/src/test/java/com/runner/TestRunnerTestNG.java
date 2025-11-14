@@ -7,10 +7,11 @@ import io.cucumber.testng.CucumberOptions;
 		features = {".\\src\\test\\resources\\com\\feature\\Homepage.feature"},		
 		glue = "com.stepDefinitionTestNG",
 	    
-	       plugin = {"pretty", "html:Reports/cucumber-reports.html",
+	       plugin = {"pretty", "html:Reports/cucumber-reports.html","html:reports/HTMLReports.html",
 	    		         "json:reports/json-report.json",
 	    		         "junit:reports/junit_report.xml"},
-	       tags= "@Cart"
+	       tags=" @Fifth"
+	       
 		)
 		
 
