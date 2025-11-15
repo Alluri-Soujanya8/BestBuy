@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="632.156" tests="3" skipped="0" failures="2" errors="0" timestamp="2025-11-15T14:45:55.583512400Z">
+<testcase classname="Navigate to Gift Ideas Page" name="Enter email address and phone number of the customer to place an order - #1.1" time="249.898">
+<system-out><![CDATA[
+Given the user is on the BestBuy Home Page..................................passed
+When the user clicks on the moduleName link.................................passed
+And the user clicks on the categoryname category............................passed
+And I select the petfilter checkbox filter..................................passed
+And I click on addcart button...............................................passed
+And click on checkout button................................................passed
+And click on continue as guest button.......................................passed
+And enter 11 to place an order..............................................passed
+Then click on payment button to place order.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Navigate to Gift Ideas Page" name="Enter email address and phone number of the customer to place an order - #1.2" time="209.164">
+<failure type="java.lang.AssertionError" message="Home Page is not displayed expected [true] but found [false]">
+<![CDATA[java.lang.AssertionError: Home Page is not displayed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.stepDefinitionTestNG.Profile.the_user_is_on_the_best_buy_home_page(Profile.java:32)
+	at ✽.the user is on the BestBuy Home Page(file:///C:/training%20modules/JavaSelenium/BestBuy/./src/test/resources/com/features/Homepage.feature:47)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the user is on the BestBuy Home Page..................................failed
+When the user clicks on the moduleName link.................................skipped
+And the user clicks on the categoryname category............................skipped
+And I select the petfilter checkbox filter..................................skipped
+And I click on addcart button...............................................skipped
+And click on checkout button................................................skipped
+And click on continue as guest button.......................................skipped
+And enter 12 to place an order..............................................skipped
+Then click on payment button to place order.................................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Navigate to Gift Ideas Page" name="Enter email address and phone number of the customer to place an order - #1.3" time="171.947">
+<failure type="java.lang.AssertionError" message="expected [true] but found [false]">
+<![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_link(Profile.java:56)
+	at ✽.the user clicks on the moduleName link(file:///C:/training%20modules/JavaSelenium/BestBuy/./src/test/resources/com/features/Homepage.feature:48)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the user is on the BestBuy Home Page..................................passed
+When the user clicks on the moduleName link.................................failed
+And the user clicks on the categoryname category............................skipped
+And I select the petfilter checkbox filter..................................skipped
+And I click on addcart button...............................................skipped
+And click on checkout button................................................skipped
+And click on continue as guest button.......................................skipped
+And enter 13 to place an order..............................................skipped
+Then click on payment button to place order.................................skipped
+]]></system-out>
+</testcase>
+</testsuite>

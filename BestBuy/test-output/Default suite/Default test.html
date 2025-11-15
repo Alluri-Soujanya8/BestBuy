@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>9/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Nov 14 09:39:29 IST 2025</td>
+<td>Started on:</td><td>Sat Nov 15 20:15:54 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>523 seconds (523205 ms)</td>
+<tr><td>Total time:</td><td>633 seconds (633163 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,53 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Enter email address and phone number of the customer to place an order", "Navigate to Gift Ideas Page"</td>
+<td><div><pre>java.lang.AssertionError: Home Page is not displayed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.stepDefinitionTestNG.Profile.the_user_is_on_the_best_buy_home_page(Profile.java:32)
+	at ✽.the user is on the BestBuy Home Page(file:///C:/training%20modules/JavaSelenium/BestBuy/./src/test/resources/com/features/Homepage.feature:47)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1952031262", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1952031262'><pre>java.lang.AssertionError: Home Page is not displayed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.stepDefinitionTestNG.Profile.the_user_is_on_the_best_buy_home_page(Profile.java:32)
+	at ✽.the user is on the BestBuy Home Page(file:///C:/training%20modules/JavaSelenium/BestBuy/./src/test/resources/com/features/Homepage.feature:47)
+</pre></div></td>
+<td>209</td>
+<td>com.runner.TestRunnerTestNG@62e7f11d</td></tr>
+<tr>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Enter email address and phone number of the customer to place an order", "Navigate to Gift Ideas Page"</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_link(Profile.java:56)
+	at ✽.the user clicks on the moduleName link(file:///C:/training%20modules/JavaSelenium/BestBuy/./src/test/resources/com/features/Homepage.feature:48)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1572582034", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1572582034'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.stepDefinitionTestNG.Profile.the_user_clicks_on_the_link(Profile.java:56)
+	at ✽.the user clicks on the moduleName link(file:///C:/training%20modules/JavaSelenium/BestBuy/./src/test/resources/com/features/Homepage.feature:48)
+</pre></div></td>
+<td>171</td>
+<td>com.runner.TestRunnerTestNG@62e7f11d</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -76,50 +123,10 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify navigation and name entry workflow using Excel data", "Navigate to BestBuy E-Gift Cards Page from Menu"</td>
+<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Enter email address and phone number of the customer to place an order", "Navigate to Gift Ideas Page"</td>
 <td></td>
-<td>76</td>
-<td>com.runner.TestRunnerTestNG@770d3326</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate required fields and navigate to design selection", "Navigate to BestBuy E-Gift Cards Page from Menu"</td>
-<td></td>
-<td>44</td>
-<td>com.runner.TestRunnerTestNG@770d3326</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify design selection, amount selection, and validate navigation", "Navigate to BestBuy E-Gift Cards Page from Menu"</td>
-<td></td>
-<td>31</td>
-<td>com.runner.TestRunnerTestNG@770d3326</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify navigation and name entry workflow using Excel data", "Navigate to BestBuy E-Gift Cards Page from Menu"</td>
-<td></td>
-<td>94</td>
-<td>com.runner.TestRunnerTestNG@770d3326</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify navigation and name entry workflow using Excel data", "Navigate to BestBuy E-Gift Cards Page from Menu"</td>
-<td></td>
-<td>63</td>
-<td>com.runner.TestRunnerTestNG@770d3326</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Navigate to E-Gift Cards page via menu", "Navigate to BestBuy E-Gift Cards Page from Menu"</td>
-<td></td>
-<td>24</td>
-<td>com.runner.TestRunnerTestNG@770d3326</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Add Message to Checkout Flow", "Navigate to BestBuy E-Gift Cards Page from Menu"</td>
-<td></td>
-<td>70</td>
-<td>com.runner.TestRunnerTestNG@770d3326</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Add Message to Checkout Flow", "Navigate to BestBuy E-Gift Cards Page from Menu"</td>
-<td></td>
-<td>61</td>
-<td>com.runner.TestRunnerTestNG@770d3326</td></tr>
-<tr>
-<td title='com.runner.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: com.runner.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify Add Message to Checkout Flow", "Navigate to BestBuy E-Gift Cards Page from Menu"</td>
-<td></td>
-<td>53</td>
-<td>com.runner.TestRunnerTestNG@770d3326</td></tr>
+<td>250</td>
+<td>com.runner.TestRunnerTestNG@62e7f11d</td></tr>
 </table><p>
 </body>
 </html>
